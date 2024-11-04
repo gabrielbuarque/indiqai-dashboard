@@ -1,20 +1,32 @@
-# Usar a imagem base do Flutter
-RUN flutter build web
-FROM cirrusci/flutter:latest
+# Etapa 1: Construir a aplicação Flutter Web
+FROM cirrusci/flutter:stable AS build
 
-# Adicionar o repositório do Dart
-RUN apt-get update && apt-get install -y gnupg \
-    && curl -sS https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && sh -c 'echo "deb [arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main" > /etc/apt/sources.list.d/dart_stable.list' \
-    && apt-get update && apt-get install -y dart
-
-# Configurar o diretório de trabalho
+# Definir o diretório de trabalho
 WORKDIR /app
 
-# Copiar o pubspec.yaml e instalar dependências
-COPY pubspec.yaml /app/pubspec.yaml
+# Copiar os arquivos do projeto para o contêiner
+COPY . .
+
+# Habilitar o suporte ao Flutter Web
+RUN flutter config --enable-web
+
+# Obter as dependências do projeto
 RUN flutter pub get
 
-# Copiar o restante dos arquivos e realizar o build
-COPY . /app
-RUN flutter build web
+# Construir a aplicação para a web
+RUN flutter build web --release
+
+# Etapa 2: Servir a aplicação usando o Nginx
+FROM nginx:alpine
+
+# Remover a configuração padrão do Nginx
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copiar os arquivos construídos para o diretório de serviço do Nginx
+COPY --from=build /app/build/web /usr/share/nginx/html
+
+# Expor a porta 80 para acesso HTTP
+EXPOSE 8095
+
+# Comando para iniciar o Nginx
+CMD ["nginx", "-g", "daemon off;"]
