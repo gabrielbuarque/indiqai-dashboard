@@ -1,21 +1,32 @@
 # Etapa de construção
-FROM cirrusci/flutter:latest AS build
+FROM ubuntu:latest AS build
 
-# Instalar sudo para permissões de usuário e outras dependências
-RUN apt-get update && apt-get install -y sudo
+# Instalar dependências principais e sudo para permissões de usuário
+RUN apt-get update && \
+    apt-get install -y git curl cmake meson make clang libgtk-3-dev pkg-config sudo
+
+# Criar diretório de desenvolvimento e clonar o Flutter
+RUN mkdir -p /development && \
+    cd /development && \
+    git clone https://github.com/flutter/flutter.git -b stable
+
+# Adicionar o Flutter ao PATH
+ENV PATH="/development/flutter/bin:$PATH"
+
+# Instalar as dependências do Flutter e configurar para web
+RUN flutter precache && \
+    flutter config --enable-web && \
+    flutter doctor -v
 
 # Criar um usuário não-root
 RUN useradd -m flutteruser && echo "flutteruser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # Definir o diretório de trabalho e garantir que o repositório Flutter seja confiável
 WORKDIR /app
-RUN git config --global --add safe.directory /sdks/flutter
+RUN git config --global --add safe.directory /development/flutter
 
 # Trocar para o usuário não-root
 USER flutteruser
-
-# Habilitar o suporte à web
-RUN sudo flutter config --enable-web
 
 # Copiar os arquivos do projeto para o contêiner
 COPY . .
