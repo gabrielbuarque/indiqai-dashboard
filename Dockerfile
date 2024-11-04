@@ -1,23 +1,25 @@
 # Use a imagem oficial do Dart para compilação
-FROM dart:latest AS build
+FROM dart:stable AS build
 
 # Defina o diretório de trabalho
 WORKDIR /app
 
-# Copie e instale as dependências
+# Copie os arquivos de configuração e instale as dependências
 COPY pubspec.* ./
 RUN dart pub get
 
-# Copie o restante do aplicativo e construa
+# Copie o restante do código do aplicativo
 COPY . .
-RUN dart pub get --offline
-RUN dart run build_runner build
 
-# Use a imagem base distroless do Google para a imagem final
-FROM gcr.io/distroless/base
+# Compile o aplicativo Flutter para a web
+RUN flutter build web
 
-# Copie a compilação do estágio de build
-COPY --from=build /app/build /app
+# Use uma imagem base leve para servir o aplicativo
+FROM nginx:alpine
+COPY --from=build /app/build/web /usr/share/nginx/html
 
-# Defina o comando padrão para executar o aplicativo Flutter
-CMD ["/app/"]
+# Exponha a porta 80 para o servidor web
+EXPOSE 8095
+
+# Comando para iniciar o Nginx
+CMD ["nginx", "-g", "daemon off;"]
