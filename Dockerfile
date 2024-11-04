@@ -4,7 +4,7 @@ FROM dart:3.0.0
 
 
 # Definir o diretório de trabalho
-WORKDIR /app
+WORKDIR /web
 
 # Copiar os arquivos do projeto para o contêiner
 COPY . .
@@ -25,7 +25,7 @@ FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copiar os arquivos construídos para o diretório de serviço do Nginx
-COPY --from=build /app/build/web /usr/share/nginx/html
+COPY --from=build /web /usr/share/nginx/html
 
 # Expor a porta 80 para acesso HTTP
 EXPOSE 8095
