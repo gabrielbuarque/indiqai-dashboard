@@ -1,8 +1,13 @@
 # Etapa de construção
 FROM cirrusci/flutter:latest AS build
 
-# Criar e usar um usuário não root
-RUN adduser -D flutteruser
+# Instalar o sudo para criar e alternar para um usuário não root
+RUN apt-get update && apt-get install -y sudo
+
+# Criar um usuário não root chamado 'flutteruser'
+RUN useradd -m flutteruser && echo "flutteruser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Trocar para o usuário não root
 USER flutteruser
 
 # Definir o diretório de trabalho
