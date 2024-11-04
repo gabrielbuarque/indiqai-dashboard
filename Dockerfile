@@ -1,15 +1,14 @@
-# Use uma imagem base que já tenha o Flutter instalado ou instale-o manualmente
 FROM cirrusci/flutter:latest
 
-WORKDIR /app
+# Instalar Dart SDK na versão necessária
+RUN apt-get update && apt-get install -y curl \
+    && curl -sSL https://dl.google.com/dl/linux/direct/dart_3.0.0-1_amd64.deb -o dart.deb \
+    && dpkg -i dart.deb
 
-# Copiar o pubspec.yaml e rodar flutter pub get para instalar dependências
+# Continue com o setup do Flutter
+WORKDIR /app
 COPY pubspec.yaml /app/pubspec.yaml
 RUN flutter pub get
 
-# Copiar o restante dos arquivos e rodar o build
 COPY . /app
 RUN flutter build web
-
-# Definir o comando de início para servir o aplicativo
-CMD npx serve -s build/web -l 8095
