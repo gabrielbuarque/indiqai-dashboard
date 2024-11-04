@@ -1,4 +1,5 @@
 # Usar a imagem base do Flutter
+RUN flutter build web
 FROM cirrusci/flutter:latest
 
 # Adicionar o repositório do Dart
