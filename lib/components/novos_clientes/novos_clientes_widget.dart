@@ -3,9 +3,13 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'novos_clientes_model.dart';
 export 'novos_clientes_model.dart';
 
@@ -53,8 +57,8 @@ class _NovosClientesWidgetState extends State<NovosClientesWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(30.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(30.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -79,12 +83,12 @@ class _NovosClientesWidgetState extends State<NovosClientesWidget>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 12.0),
+      padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 12.0),
       child: Container(
         width: 250.0,
         height: 161.0,
         decoration: BoxDecoration(
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x34090F13),
@@ -108,7 +112,7 @@ class _NovosClientesWidgetState extends State<NovosClientesWidget>
                 borderRadius: BorderRadius.circular(12.0),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: EdgeInsets.all(12.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -148,15 +152,15 @@ class _NovosClientesWidgetState extends State<NovosClientesWidget>
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12.0),
                           ),
-                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                          alignment: AlignmentDirectional(-1.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              widget.icon!,
+                              widget!.icon!,
                               Flexible(
                                 child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: EdgeInsets.all(8.0),
                                   child: Text(
                                     '+${containerEmpresasRow?.numberClients?.toString()}',
                                     maxLines: 1,
@@ -171,7 +175,7 @@ class _NovosClientesWidgetState extends State<NovosClientesWidget>
                                   ),
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 0.0)),
+                            ].divide(SizedBox(width: 0.0)),
                           ),
                         );
                       },

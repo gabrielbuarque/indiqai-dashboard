@@ -1,6 +1,9 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'user_menu_model.dart';
 export 'user_menu_model.dart';
 
@@ -41,7 +44,7 @@ class _UserMenuWidgetState extends State<UserMenuWidget> {
       width: 280.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
             blurRadius: 16.0,
             color: Color(0x1B080B1F),
@@ -54,25 +57,19 @@ class _UserMenuWidgetState extends State<UserMenuWidget> {
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             MouseRegion(
               opaque: false,
               cursor: MouseCursor.defer ?? MouseCursor.defer,
-              onEnter: ((event) async {
-                safeSetState(() => _model.mouseRegionHovered1 = true);
-              }),
-              onExit: ((event) async {
-                safeSetState(() => _model.mouseRegionHovered1 = false);
-              }),
               child: Container(
                 width: double.infinity,
                 height: 54.0,
                 decoration: BoxDecoration(
                   color: valueOrDefault<Color>(
-                    _model.mouseRegionHovered1
+                    _model.mouseRegionHovered1!
                         ? FlutterFlowTheme.of(context).secondaryBackground
                         : FlutterFlowTheme.of(context).primaryBackground,
                     FlutterFlowTheme.of(context).primaryBackground,
@@ -95,21 +92,21 @@ class _UserMenuWidgetState extends State<UserMenuWidget> {
                           ),
                     ),
                   ]
-                      .divide(const SizedBox(width: 16.0))
-                      .addToStart(const SizedBox(width: 16.0))
-                      .addToEnd(const SizedBox(width: 16.0)),
+                      .divide(SizedBox(width: 16.0))
+                      .addToStart(SizedBox(width: 16.0))
+                      .addToEnd(SizedBox(width: 16.0)),
                 ),
               ),
+              onEnter: ((event) async {
+                safeSetState(() => _model.mouseRegionHovered1 = true);
+              }),
+              onExit: ((event) async {
+                safeSetState(() => _model.mouseRegionHovered1 = false);
+              }),
             ),
             MouseRegion(
               opaque: false,
               cursor: MouseCursor.defer ?? MouseCursor.defer,
-              onEnter: ((event) async {
-                safeSetState(() => _model.mouseRegionHovered2 = true);
-              }),
-              onExit: ((event) async {
-                safeSetState(() => _model.mouseRegionHovered2 = false);
-              }),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -123,7 +120,7 @@ class _UserMenuWidgetState extends State<UserMenuWidget> {
                   height: 54.0,
                   decoration: BoxDecoration(
                     color: valueOrDefault<Color>(
-                      _model.mouseRegionHovered2
+                      _model.mouseRegionHovered2!
                           ? FlutterFlowTheme.of(context).secondaryBackground
                           : FlutterFlowTheme.of(context).primaryBackground,
                       FlutterFlowTheme.of(context).primaryBackground,
@@ -146,22 +143,22 @@ class _UserMenuWidgetState extends State<UserMenuWidget> {
                             ),
                       ),
                     ]
-                        .divide(const SizedBox(width: 16.0))
-                        .addToStart(const SizedBox(width: 16.0))
-                        .addToEnd(const SizedBox(width: 16.0)),
+                        .divide(SizedBox(width: 16.0))
+                        .addToStart(SizedBox(width: 16.0))
+                        .addToEnd(SizedBox(width: 16.0)),
                   ),
                 ),
               ),
+              onEnter: ((event) async {
+                safeSetState(() => _model.mouseRegionHovered2 = true);
+              }),
+              onExit: ((event) async {
+                safeSetState(() => _model.mouseRegionHovered2 = false);
+              }),
             ),
             MouseRegion(
               opaque: false,
               cursor: MouseCursor.defer ?? MouseCursor.defer,
-              onEnter: ((event) async {
-                safeSetState(() => _model.mouseRegionHovered3 = true);
-              }),
-              onExit: ((event) async {
-                safeSetState(() => _model.mouseRegionHovered3 = false);
-              }),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -175,7 +172,7 @@ class _UserMenuWidgetState extends State<UserMenuWidget> {
                   height: 54.0,
                   decoration: BoxDecoration(
                     color: valueOrDefault<Color>(
-                      _model.mouseRegionHovered3
+                      _model.mouseRegionHovered3!
                           ? FlutterFlowTheme.of(context).secondaryBackground
                           : FlutterFlowTheme.of(context).primaryBackground,
                       FlutterFlowTheme.of(context).primaryBackground,
@@ -198,22 +195,22 @@ class _UserMenuWidgetState extends State<UserMenuWidget> {
                             ),
                       ),
                     ]
-                        .divide(const SizedBox(width: 16.0))
-                        .addToStart(const SizedBox(width: 16.0))
-                        .addToEnd(const SizedBox(width: 16.0)),
+                        .divide(SizedBox(width: 16.0))
+                        .addToStart(SizedBox(width: 16.0))
+                        .addToEnd(SizedBox(width: 16.0)),
                   ),
                 ),
               ),
+              onEnter: ((event) async {
+                safeSetState(() => _model.mouseRegionHovered3 = true);
+              }),
+              onExit: ((event) async {
+                safeSetState(() => _model.mouseRegionHovered3 = false);
+              }),
             ),
             MouseRegion(
               opaque: false,
               cursor: MouseCursor.defer ?? MouseCursor.defer,
-              onEnter: ((event) async {
-                safeSetState(() => _model.mouseRegionHovered4 = true);
-              }),
-              onExit: ((event) async {
-                safeSetState(() => _model.mouseRegionHovered4 = false);
-              }),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -227,7 +224,7 @@ class _UserMenuWidgetState extends State<UserMenuWidget> {
                   height: 54.0,
                   decoration: BoxDecoration(
                     color: valueOrDefault<Color>(
-                      _model.mouseRegionHovered4
+                      _model.mouseRegionHovered4!
                           ? FlutterFlowTheme.of(context).secondaryBackground
                           : FlutterFlowTheme.of(context).primaryBackground,
                       FlutterFlowTheme.of(context).primaryBackground,
@@ -251,12 +248,18 @@ class _UserMenuWidgetState extends State<UserMenuWidget> {
                             ),
                       ),
                     ]
-                        .divide(const SizedBox(width: 16.0))
-                        .addToStart(const SizedBox(width: 16.0))
-                        .addToEnd(const SizedBox(width: 16.0)),
+                        .divide(SizedBox(width: 16.0))
+                        .addToStart(SizedBox(width: 16.0))
+                        .addToEnd(SizedBox(width: 16.0)),
                   ),
                 ),
               ),
+              onEnter: ((event) async {
+                safeSetState(() => _model.mouseRegionHovered4 = true);
+              }),
+              onExit: ((event) async {
+                safeSetState(() => _model.mouseRegionHovered4 = false);
+              }),
             ),
           ],
         ),

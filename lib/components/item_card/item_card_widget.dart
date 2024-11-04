@@ -1,10 +1,15 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'item_card_model.dart';
 export 'item_card_model.dart';
 
@@ -95,9 +100,9 @@ class _ItemCardWidgetState extends State<ItemCardWidget>
           ClipRRect(
             borderRadius: BorderRadius.circular(8.0),
             child: CachedNetworkImage(
-              fadeInDuration: const Duration(milliseconds: 500),
-              fadeOutDuration: const Duration(milliseconds: 500),
-              imageUrl: widget.image!,
+              fadeInDuration: Duration(milliseconds: 500),
+              fadeOutDuration: Duration(milliseconds: 500),
+              imageUrl: widget!.image!,
               width: 200.0,
               height: 140.0,
               fit: BoxFit.cover,
@@ -106,8 +111,8 @@ class _ItemCardWidgetState extends State<ItemCardWidget>
           Container(
             width: 250.0,
             height: 140.0,
-            decoration: const BoxDecoration(),
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            decoration: BoxDecoration(),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -126,14 +131,14 @@ class _ItemCardWidgetState extends State<ItemCardWidget>
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 4.0, 8.0, 4.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
                                   formatNumber(
-                                    widget.price,
+                                    widget!.price,
                                     formatType: FormatType.decimal,
                                     decimalType: DecimalType.automatic,
                                     currency: '\$',
@@ -159,7 +164,7 @@ class _ItemCardWidgetState extends State<ItemCardWidget>
                       children: [
                         Flexible(
                           child: Text(
-                            widget.title!,
+                            widget!.title!,
                             maxLines: 1,
                             style: FlutterFlowTheme.of(context)
                                 .labelLarge
@@ -172,18 +177,10 @@ class _ItemCardWidgetState extends State<ItemCardWidget>
                       ],
                     ),
                     Container(
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                       child: MouseRegion(
                         opaque: false,
                         cursor: MouseCursor.defer ?? MouseCursor.defer,
-                        onEnter: ((event) async {
-                          safeSetState(
-                              () => _model.addressRegionHovered = true);
-                        }),
-                        onExit: ((event) async {
-                          safeSetState(
-                              () => _model.addressRegionHovered = false);
-                        }),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -195,7 +192,7 @@ class _ItemCardWidgetState extends State<ItemCardWidget>
                             ),
                             Flexible(
                               child: Text(
-                                widget.address!,
+                                widget!.address!,
                                 maxLines: 1,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -209,7 +206,7 @@ class _ItemCardWidgetState extends State<ItemCardWidget>
                             ),
                             if (_model.addressRegionHovered ?? true)
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     5.0, 0.0, 0.0, 0.0),
                                 child: Icon(
                                   Icons.launch_outlined,
@@ -219,11 +216,19 @@ class _ItemCardWidgetState extends State<ItemCardWidget>
                                 ).animateOnPageLoad(
                                     animationsMap['iconOnPageLoadAnimation']!),
                               ),
-                          ].divide(const SizedBox(width: 10.0)),
+                          ].divide(SizedBox(width: 10.0)),
                         ),
+                        onEnter: ((event) async {
+                          safeSetState(
+                              () => _model.addressRegionHovered = true);
+                        }),
+                        onExit: ((event) async {
+                          safeSetState(
+                              () => _model.addressRegionHovered = false);
+                        }),
                       ),
                     ),
-                  ].divide(const SizedBox(height: 12.0)),
+                  ].divide(SizedBox(height: 12.0)),
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
@@ -239,7 +244,7 @@ class _ItemCardWidgetState extends State<ItemCardWidget>
                         ),
                         Text(
                           valueOrDefault<String>(
-                            widget.bedsNum?.toString(),
+                            widget!.bedsNum?.toString(),
                             '0',
                           ),
                           style: FlutterFlowTheme.of(context)
@@ -250,7 +255,7 @@ class _ItemCardWidgetState extends State<ItemCardWidget>
                                 letterSpacing: 0.0,
                               ),
                         ),
-                      ].divide(const SizedBox(width: 10.0)),
+                      ].divide(SizedBox(width: 10.0)),
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.max,
@@ -263,7 +268,7 @@ class _ItemCardWidgetState extends State<ItemCardWidget>
                         ),
                         Text(
                           valueOrDefault<String>(
-                            widget.bathNum?.toString(),
+                            widget!.bathNum?.toString(),
                             '0',
                           ),
                           style: FlutterFlowTheme.of(context)
@@ -274,7 +279,7 @@ class _ItemCardWidgetState extends State<ItemCardWidget>
                                 letterSpacing: 0.0,
                               ),
                         ),
-                      ].divide(const SizedBox(width: 10.0)),
+                      ].divide(SizedBox(width: 10.0)),
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.max,
@@ -287,7 +292,7 @@ class _ItemCardWidgetState extends State<ItemCardWidget>
                         ),
                         Text(
                           '${valueOrDefault<String>(
-                            widget.sqfNum?.toString(),
+                            widget!.sqfNum?.toString(),
                             '0',
                           )}M',
                           style: FlutterFlowTheme.of(context)
@@ -298,11 +303,11 @@ class _ItemCardWidgetState extends State<ItemCardWidget>
                                 letterSpacing: 0.0,
                               ),
                         ),
-                      ].divide(const SizedBox(width: 10.0)),
+                      ].divide(SizedBox(width: 10.0)),
                     ),
-                  ].divide(const SizedBox(width: 25.0)),
+                  ].divide(SizedBox(width: 25.0)),
                 ),
-              ].divide(const SizedBox(height: 12.0)),
+              ].divide(SizedBox(height: 12.0)),
             ),
           ),
         ],

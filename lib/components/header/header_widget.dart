@@ -9,6 +9,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'header_model.dart';
 export 'header_model.dart';
@@ -63,11 +64,11 @@ class _HeaderWidgetState extends State<HeaderWidget> {
           Container(
             width: 2.0,
             height: double.infinity,
-            decoration: const BoxDecoration(),
+            decoration: BoxDecoration(),
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -118,7 +119,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                                 Container(
                                   width: 48.0,
                                   height: 48.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Icon(
                                     Icons.search,
                                     color: FlutterFlowTheme.of(context)
@@ -131,14 +132,14 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                                   phone: false,
                                   tablet: false,
                                 ))
-                                  SizedBox(
+                                  Container(
                                     width: 300.0,
                                     child: TextFormField(
                                       controller: _model.textController,
                                       focusNode: _model.textFieldFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.textController',
-                                        const Duration(milliseconds: 500),
+                                        Duration(milliseconds: 500),
                                         () => safeSetState(() {}),
                                       ),
                                       autofocus: false,
@@ -203,12 +204,12 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                                 width: 100.0,
                                 height: 80.0,
                                 fit: BoxFit.contain,
-                                alignment: const Alignment(0.0, 0.0),
+                                alignment: Alignment(0.0, 0.0),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 8.0)),
+                          ].divide(SizedBox(width: 8.0)),
                         ),
-                    ].divide(const SizedBox(width: 12.0)),
+                    ].divide(SizedBox(width: 12.0)),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -254,13 +255,13 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                                   context: context,
                                   isGlobal: false,
                                   avoidOverflow: false,
-                                  targetAnchor: const AlignmentDirectional(1.0, 1.0)
+                                  targetAnchor: AlignmentDirectional(1.0, 1.0)
                                       .resolve(Directionality.of(context)),
                                   followerAnchor:
-                                      const AlignmentDirectional(1.0, -1.0)
+                                      AlignmentDirectional(1.0, -1.0)
                                           .resolve(Directionality.of(context)),
                                   builder: (dialogContext) {
-                                    return const Material(
+                                    return Material(
                                       color: Colors.transparent,
                                       child: UserMenuWidget(),
                                     );
@@ -271,7 +272,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                                 width: 44.0,
                                 height: 44.0,
                                 clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.network(
@@ -286,7 +287,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                           },
                         ),
                       ),
-                    ].divide(const SizedBox(width: 24.0)),
+                    ].divide(SizedBox(width: 24.0)),
                   ),
                 ],
               ),

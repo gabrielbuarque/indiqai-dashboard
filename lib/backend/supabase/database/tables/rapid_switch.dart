@@ -9,7 +9,7 @@ class RapidSwitchTable extends SupabaseTable<RapidSwitchRow> {
 }
 
 class RapidSwitchRow extends SupabaseDataRow {
-  RapidSwitchRow(super.data);
+  RapidSwitchRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => RapidSwitchTable();

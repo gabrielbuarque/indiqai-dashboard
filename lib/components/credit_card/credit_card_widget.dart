@@ -1,6 +1,10 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'credit_card_widget_model.dart';
 export 'credit_card_widget_model.dart';
 
@@ -10,8 +14,8 @@ class CreditCardWidget extends StatefulWidget {
     this.icon,
     String? name,
     String? cardNumber,
-  })  : name = name ?? 'Name',
-        cardNumber = cardNumber ?? '1234 - 6198 - 5191 - 6519';
+  })  : this.name = name ?? 'Name',
+        this.cardNumber = cardNumber ?? '1234 - 6198 - 5191 - 6519';
 
   final Widget? icon;
   final String name;
@@ -55,7 +59,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 16.0),
+        padding: EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 16.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,7 +78,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                         ),
                   ),
                 ),
-                widget.icon!,
+                widget!.icon!,
               ],
             ),
             Column(
@@ -86,7 +90,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                   children: [
                     Flexible(
                       child: Text(
-                        widget.name,
+                        widget!.name,
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                               fontFamily: 'Nunito',
                               color: FlutterFlowTheme.of(context).white0,
@@ -101,7 +105,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                   children: [
                     Flexible(
                       child: Text(
-                        widget.cardNumber,
+                        widget!.cardNumber,
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                               fontFamily: 'Nunito',
                               color: FlutterFlowTheme.of(context).white0,
@@ -111,7 +115,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                     ),
                   ],
                 ),
-              ].divide(const SizedBox(height: 4.0)),
+              ].divide(SizedBox(height: 4.0)),
             ),
           ],
         ),

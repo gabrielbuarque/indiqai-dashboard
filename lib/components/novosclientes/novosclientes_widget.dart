@@ -1,8 +1,13 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'novosclientes_model.dart';
 export 'novosclientes_model.dart';
 
@@ -45,8 +50,8 @@ class _NovosclientesWidgetState extends State<NovosclientesWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(30.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(30.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -71,12 +76,12 @@ class _NovosclientesWidgetState extends State<NovosclientesWidget>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 12.0),
+      padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 12.0),
       child: Container(
         width: 250.0,
         height: 150.0,
         decoration: BoxDecoration(
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x34090F13),
@@ -89,7 +94,7 @@ class _NovosclientesWidgetState extends State<NovosclientesWidget>
           borderRadius: BorderRadius.circular(12.0),
         ),
         child: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -99,7 +104,7 @@ class _NovosclientesWidgetState extends State<NovosclientesWidget>
                   height: MediaQuery.sizeOf(context).height * 1.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(12.0),
                       bottomRight: Radius.circular(12.0),
                       topLeft: Radius.circular(12.0),
@@ -107,7 +112,7 @@ class _NovosclientesWidgetState extends State<NovosclientesWidget>
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(12.0),
+                    padding: EdgeInsets.all(12.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -120,7 +125,7 @@ class _NovosclientesWidgetState extends State<NovosclientesWidget>
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12.0),
                             ),
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -133,7 +138,7 @@ class _NovosclientesWidgetState extends State<NovosclientesWidget>
                                 ),
                                 Flexible(
                                   child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: EdgeInsets.all(8.0),
                                     child: Text(
                                       '+ 658',
                                       maxLines: 1,
@@ -148,7 +153,7 @@ class _NovosclientesWidgetState extends State<NovosclientesWidget>
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(width: 0.0)),
+                              ].divide(SizedBox(width: 0.0)),
                             ),
                           ),
                         ),

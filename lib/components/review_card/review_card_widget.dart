@@ -1,8 +1,12 @@
 import '/components/divider/divider_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'review_card_model.dart';
 export 'review_card_model.dart';
 
@@ -58,7 +62,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: EdgeInsets.all(12.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -68,7 +72,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
               children: [
                 Flexible(
                   child: Text(
-                    widget.whoReviewed!,
+                    widget!.whoReviewed!,
                     style: FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Nunito',
                           letterSpacing: 0.0,
@@ -76,14 +80,14 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
                   child: Container(
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).brand100,
                       borderRadius: BorderRadius.circular(4.0),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: EdgeInsets.all(4.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -93,7 +97,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                               children: [
                                 TextSpan(
                                   text: valueOrDefault<String>(
-                                    widget.reviewNumber?.toString(),
+                                    widget!.reviewNumber?.toString(),
                                     '0',
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -124,7 +128,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                             direction: Axis.horizontal,
                             initialRating: _model.ratingBarValue ??=
                                 valueOrDefault<double>(
-                              widget.reviewNumber,
+                              widget!.reviewNumber,
                               0.0,
                             ),
                             unratedColor: FlutterFlowTheme.of(context).accent4,
@@ -132,7 +136,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                             itemSize: 10.0,
                             glowColor: FlutterFlowTheme.of(context).primary,
                           ),
-                        ].divide(const SizedBox(width: 4.0)),
+                        ].divide(SizedBox(width: 4.0)),
                       ),
                     ),
                   ),
@@ -142,7 +146,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
             wrapWithModel(
               model: _model.dividerModel,
               updateCallback: () => safeSetState(() {}),
-              child: const DividerWidget(
+              child: DividerWidget(
                 titleInLeftSide: false,
               ),
             ),
@@ -151,7 +155,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
               children: [
                 Flexible(
                   child: Text(
-                    widget.review!,
+                    widget!.review!,
                     maxLines: 2,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Nunito',
@@ -162,7 +166,7 @@ class _ReviewCardWidgetState extends State<ReviewCardWidget> {
                 ),
               ],
             ),
-          ].divide(const SizedBox(height: 12.0)),
+          ].divide(SizedBox(height: 12.0)),
         ),
       ),
     );

@@ -1,14 +1,22 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
+import '/backend/supabase/supabase.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
 import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -73,69 +81,69 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const LoginPageWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const LoginPageWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : LoginPageWidget(),
         ),
         FFRoute(
           name: 'LoginPage',
           path: '/loginPage',
-          builder: (context, params) => const LoginPageWidget(),
+          builder: (context, params) => LoginPageWidget(),
         ),
         FFRoute(
           name: 'Dashboard01',
           path: '/dashboard01',
           requireAuth: true,
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Dashboard01')
-              : const Dashboard01Widget(),
+              ? NavBarPage(initialPage: 'Dashboard01')
+              : Dashboard01Widget(),
         ),
         FFRoute(
           name: 'VirtualTour',
           path: '/virtualTour',
-          builder: (context, params) => const VirtualTourWidget(),
+          builder: (context, params) => VirtualTourWidget(),
         ),
         FFRoute(
           name: 'Cupons02',
           path: '/validador',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Cupons02')
-              : const Cupons02Widget(),
+              ? NavBarPage(initialPage: 'Cupons02')
+              : Cupons02Widget(),
         ),
         FFRoute(
           name: 'ValidarCupom',
           path: '/validarCupom',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ValidarCupom')
-              : const ValidarCupomWidget(),
+              ? NavBarPage(initialPage: 'ValidarCupom')
+              : ValidarCupomWidget(),
         ),
         FFRoute(
           name: 'EditProfile',
           path: '/editProfile',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'EditProfile')
-              : const EditProfileWidget(),
+              ? NavBarPage(initialPage: 'EditProfile')
+              : EditProfileWidget(),
         ),
         FFRoute(
           name: 'Setting',
           path: '/setting',
-          builder: (context, params) => const SettingWidget(),
+          builder: (context, params) => SettingWidget(),
         ),
         FFRoute(
           name: 'admin',
           path: '/admin',
-          builder: (context, params) => const AdminWidget(),
+          builder: (context, params) => AdminWidget(),
         ),
         FFRoute(
           name: 'PdfGenerator',
           path: '/pdfGenerator',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'PdfGenerator')
-              : const PdfGeneratorWidget(),
+              ? NavBarPage(initialPage: 'PdfGenerator')
+              : PdfGeneratorWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -319,7 +327,7 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: const Color(0xFF0B0221),
+                  color: Color(0xFF0B0221),
                   child: Center(
                     child: Image.asset(
                       'assets/images/LOGO_INDIQAI_ICON_2.png',
@@ -370,7 +378,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

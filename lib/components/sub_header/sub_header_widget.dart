@@ -2,6 +2,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'sub_header_model.dart';
 export 'sub_header_model.dart';
 
@@ -10,7 +13,7 @@ class SubHeaderWidget extends StatefulWidget {
     super.key,
     required this.title,
     bool? showBackBtn,
-  }) : showBackBtn = showBackBtn ?? false;
+  }) : this.showBackBtn = showBackBtn ?? false;
 
   final String? title;
   final bool showBackBtn;
@@ -46,11 +49,11 @@ class _SubHeaderWidgetState extends State<SubHeaderWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(),
+      decoration: BoxDecoration(),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (widget.showBackBtn)
+          if (widget!.showBackBtn)
             FlutterFlowIconButton(
               borderRadius: 20.0,
               borderWidth: 0.0,
@@ -66,7 +69,7 @@ class _SubHeaderWidgetState extends State<SubHeaderWidget> {
             ),
           Flexible(
             child: Text(
-              widget.title!,
+              widget!.title!,
               style: FlutterFlowTheme.of(context).headlineSmall.override(
                     fontFamily: 'Nunito',
                     letterSpacing: 0.0,

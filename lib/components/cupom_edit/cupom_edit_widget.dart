@@ -1,6 +1,9 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'cupom_edit_model.dart';
 export 'cupom_edit_model.dart';
 
@@ -40,7 +43,7 @@ class _CupomEditWidgetState extends State<CupomEditWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
       child: Material(
         color: Colors.transparent,
         elevation: 2.0,
@@ -49,7 +52,7 @@ class _CupomEditWidgetState extends State<CupomEditWidget> {
         ),
         child: Container(
           width: MediaQuery.sizeOf(context).width * 1.0,
-          constraints: const BoxConstraints(
+          constraints: BoxConstraints(
             maxWidth: 250.0,
           ),
           decoration: BoxDecoration(
@@ -57,14 +60,14 @@ class _CupomEditWidgetState extends State<CupomEditWidget> {
             borderRadius: BorderRadius.circular(12.0),
           ),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 12.0),
+            padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 12.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),
                     child: Image.network(
@@ -76,7 +79,7 @@ class _CupomEditWidgetState extends State<CupomEditWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                   child: Text(
                     'Nome Prêmio',
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
@@ -86,7 +89,7 @@ class _CupomEditWidgetState extends State<CupomEditWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 4.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 4.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -104,9 +107,9 @@ class _CupomEditWidgetState extends State<CupomEditWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(1.0, 0.0),
+                  alignment: AlignmentDirectional(1.0, 0.0),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                     child: Text(
                       '216 ativos',
                       style: FlutterFlowTheme.of(context).labelSmall.override(

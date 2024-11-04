@@ -3,6 +3,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'sender_item_model.dart';
 export 'sender_item_model.dart';
 
@@ -53,12 +56,6 @@ class _SenderItemWidgetState extends State<SenderItemWidget> {
     return MouseRegion(
       opaque: false,
       cursor: MouseCursor.defer ?? MouseCursor.defer,
-      onEnter: ((event) async {
-        safeSetState(() => _model.mouseRegionHovered = true);
-      }),
-      onExit: ((event) async {
-        safeSetState(() => _model.mouseRegionHovered = false);
-      }),
       child: InkWell(
         splashColor: Colors.transparent,
         focusColor: Colors.transparent,
@@ -80,7 +77,7 @@ class _SenderItemWidgetState extends State<SenderItemWidget> {
             borderRadius: BorderRadius.circular(16.0),
             border: Border.all(
               color: valueOrDefault<Color>(
-                _model.mouseRegionHovered
+                _model.mouseRegionHovered!
                     ? FlutterFlowTheme.of(context).neutral200
                     : FlutterFlowTheme.of(context).white0,
                 FlutterFlowTheme.of(context).white0,
@@ -88,7 +85,7 @@ class _SenderItemWidgetState extends State<SenderItemWidget> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(16.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -105,16 +102,16 @@ class _SenderItemWidgetState extends State<SenderItemWidget> {
                   shape: badges.BadgeShape.circle,
                   badgeColor: FlutterFlowTheme.of(context).error600,
                   elevation: 0.0,
-                  padding: const EdgeInsets.all(2.0),
+                  padding: EdgeInsets.all(2.0),
                   position: badges.BadgePosition.topEnd(),
                   animationType: badges.BadgeAnimationType.scale,
                   toAnimate: true,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: CachedNetworkImage(
-                      fadeInDuration: const Duration(milliseconds: 500),
-                      fadeOutDuration: const Duration(milliseconds: 500),
-                      imageUrl: widget.avatar!,
+                      fadeInDuration: Duration(milliseconds: 500),
+                      fadeOutDuration: Duration(milliseconds: 500),
+                      imageUrl: widget!.avatar!,
                       width: 48.0,
                       height: 48.0,
                       fit: BoxFit.cover,
@@ -132,7 +129,7 @@ class _SenderItemWidgetState extends State<SenderItemWidget> {
                         children: [
                           Flexible(
                             child: Text(
-                              widget.sender!,
+                              widget!.sender!,
                               maxLines: 2,
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
@@ -147,7 +144,7 @@ class _SenderItemWidgetState extends State<SenderItemWidget> {
                             ),
                           ),
                           Text(
-                            dateTimeFormat("jm", widget.sendDate),
+                            dateTimeFormat("jm", widget!.sendDate),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -166,7 +163,7 @@ class _SenderItemWidgetState extends State<SenderItemWidget> {
                         children: [
                           Flexible(
                             child: Text(
-                              widget.title!,
+                              widget!.title!,
                               maxLines: 2,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -182,14 +179,20 @@ class _SenderItemWidgetState extends State<SenderItemWidget> {
                           ),
                         ],
                       ),
-                    ].divide(const SizedBox(height: 8.0)),
+                    ].divide(SizedBox(height: 8.0)),
                   ),
                 ),
-              ].divide(const SizedBox(width: 12.0)),
+              ].divide(SizedBox(width: 12.0)),
             ),
           ),
         ),
       ),
+      onEnter: ((event) async {
+        safeSetState(() => _model.mouseRegionHovered = true);
+      }),
+      onExit: ((event) async {
+        safeSetState(() => _model.mouseRegionHovered = false);
+      }),
     );
   }
 }

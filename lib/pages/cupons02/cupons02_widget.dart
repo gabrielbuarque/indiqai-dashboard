@@ -12,7 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
+import 'package:provider/provider.dart';
 import 'cupons02_model.dart';
 export 'cupons02_model.dart';
 
@@ -82,7 +84,7 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             body: SafeArea(
               top: true,
-              child: SizedBox(
+              child: Container(
                 width: double.infinity,
                 height: double.infinity,
                 child: Stack(
@@ -105,7 +107,7 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                   model: _model.headerModel,
                                   updateCallback: () => safeSetState(() {}),
                                   updateOnChange: true,
-                                  child: const HeaderWidget(),
+                                  child: HeaderWidget(),
                                 ),
                                 Expanded(
                                   child: Container(
@@ -116,7 +118,7 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                           .textFieldBachGround,
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 12.0, 12.0, 12.0),
                                       child: SingleChildScrollView(
                                         primary: false,
@@ -152,11 +154,11 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                     children: [
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 -1.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       12.0,
@@ -169,7 +171,7 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                                 safeSetState(
                                                                     () {}),
                                                             child:
-                                                                const SubHeaderWidget(
+                                                                SubHeaderWidget(
                                                               title:
                                                                   'Cupons Ativos',
                                                               showBackBtn:
@@ -180,11 +182,11 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsets.all(
+                                                              EdgeInsets.all(
                                                                   12.0),
                                                           child: Row(
                                                             mainAxisSize:
@@ -196,7 +198,7 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                             children: [
                                                               Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child:
@@ -223,7 +225,7 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                                             padding:
                                                                                 MediaQuery.viewInsetsOf(context),
                                                                             child:
-                                                                                const SenhaAdminCriarWidget(),
+                                                                                SenhaAdminCriarWidget(),
                                                                           ),
                                                                         );
                                                                       },
@@ -233,7 +235,7 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                                   },
                                                                   text:
                                                                       'Adicionar novos cupons',
-                                                                  icon: const FaIcon(
+                                                                  icon: FaIcon(
                                                                     FontAwesomeIcons
                                                                         .plus,
                                                                     size: 14.0,
@@ -242,14 +244,14 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                                       FFButtonOptions(
                                                                     height:
                                                                         40.0,
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             16.0,
                                                                             0.0,
                                                                             16.0,
                                                                             0.0),
                                                                     iconPadding:
-                                                                        const EdgeInsetsDirectional.fromSTEB(
+                                                                        EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -282,7 +284,7 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: FutureBuilder<
                                                             List<ProductsRow>>(
@@ -346,7 +348,7 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                                     wrapProductsRowList[
                                                                         wrapIndex];
                                                                 return Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           12.0,
@@ -411,7 +413,7 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                                         width: MediaQuery.sizeOf(context).width *
                                                                             1.0,
                                                                         constraints:
-                                                                            const BoxConstraints(
+                                                                            BoxConstraints(
                                                                           maxWidth:
                                                                               250.0,
                                                                         ),
@@ -424,7 +426,7 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                                         ),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               4.0,
                                                                               4.0,
                                                                               4.0,
@@ -439,7 +441,7 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                                                 CrossAxisAlignment.start,
                                                                             children: [
                                                                               Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                                                                                 child: ClipRRect(
                                                                                   borderRadius: BorderRadius.circular(10.0),
                                                                                   child: OctoImage(
@@ -459,7 +461,7 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                                                 ),
                                                                               ),
                                                                               Padding(
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                 child: Text(
                                                                                   valueOrDefault<String>(
                                                                                     wrapProductsRow.name,
@@ -472,9 +474,9 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                                                 ),
                                                                               ),
                                                                               Align(
-                                                                                alignment: const AlignmentDirectional(1.0, 0.0),
+                                                                                alignment: AlignmentDirectional(1.0, 0.0),
                                                                                 child: Padding(
-                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                                                                                   child: Text(
                                                                                     '${wrapProductsRow.quantity?.toString()} restantes',
                                                                                     style: FlutterFlowTheme.of(context).labelSmall.override(
@@ -500,12 +502,12 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(height: 24.0)),
+                                                        SizedBox(height: 24.0)),
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                          ].divide(const SizedBox(height: 12.0)),
+                                          ].divide(SizedBox(height: 12.0)),
                                         ),
                                       ),
                                     ),
@@ -525,11 +527,11 @@ class _Cupons02WidgetState extends State<Cupons02Widget> {
                       desktop: false,
                     ))
                       Align(
-                        alignment: const AlignmentDirectional(0.8, -0.96),
+                        alignment: AlignmentDirectional(0.8, -0.96),
                         child: wrapWithModel(
                           model: _model.navigatorModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const NavigatorWidget(
+                          child: NavigatorWidget(
                             expanded: true,
                           ),
                         ),

@@ -9,7 +9,7 @@ class InteracoesTable extends SupabaseTable<InteracoesRow> {
 }
 
 class InteracoesRow extends SupabaseDataRow {
-  InteracoesRow(super.data);
+  InteracoesRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => InteracoesTable();

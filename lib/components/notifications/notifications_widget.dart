@@ -1,8 +1,12 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'notifications_model.dart';
 export 'notifications_model.dart';
 
@@ -44,7 +48,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
       height: 500.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
             blurRadius: 16.0,
             color: Color(0x1B080B1F),
@@ -57,7 +61,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 8.0, 16.0),
+        padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 8.0, 16.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -83,14 +87,14 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: Container(
                           width: double.infinity,
                           decoration: BoxDecoration(
@@ -237,10 +241,10 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                         ),
                                       ],
                                     ),
-                                  ].divide(const SizedBox(height: 4.0)),
+                                  ].divide(SizedBox(height: 4.0)),
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 16.0)),
+                            ].divide(SizedBox(width: 16.0)),
                           ),
                         ),
                       ),
@@ -380,10 +384,10 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                       ),
                                     ],
                                   ),
-                                ].divide(const SizedBox(height: 4.0)),
+                                ].divide(SizedBox(height: 4.0)),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 16.0)),
+                          ].divide(SizedBox(width: 16.0)),
                         ),
                       ),
                       Container(
@@ -522,20 +526,20 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                       ),
                                     ],
                                   ),
-                                ].divide(const SizedBox(height: 4.0)),
+                                ].divide(SizedBox(height: 4.0)),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 16.0)),
+                          ].divide(SizedBox(width: 16.0)),
                         ),
                       ),
                     ]
-                        .divide(const SizedBox(height: 16.0))
-                        .addToEnd(const SizedBox(height: 176.0)),
+                        .divide(SizedBox(height: 16.0))
+                        .addToEnd(SizedBox(height: 176.0)),
                   ),
                 ),
               ),
             ),
-          ].divide(const SizedBox(height: 16.0)),
+          ].divide(SizedBox(height: 16.0)),
         ),
       ),
     );

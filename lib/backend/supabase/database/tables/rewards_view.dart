@@ -9,7 +9,7 @@ class RewardsViewTable extends SupabaseTable<RewardsViewRow> {
 }
 
 class RewardsViewRow extends SupabaseDataRow {
-  RewardsViewRow(super.data);
+  RewardsViewRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => RewardsViewTable();

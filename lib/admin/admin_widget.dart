@@ -2,8 +2,11 @@ import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'admin_model.dart';
 export 'admin_model.dart';
 
@@ -53,7 +56,7 @@ class _AdminWidgetState extends State<AdminWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: false,
           elevation: 2.0,
         ),
@@ -119,7 +122,7 @@ class _AdminWidgetState extends State<AdminWidget> {
                             },
                             child: Container(
                               height: 100.0,
-                              constraints: const BoxConstraints(
+                              constraints: BoxConstraints(
                                 minWidth: 250.0,
                                 maxWidth: 350.0,
                               ),
@@ -139,7 +142,7 @@ class _AdminWidgetState extends State<AdminWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -148,7 +151,7 @@ class _AdminWidgetState extends State<AdminWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 16.0, 0.0),
                                           child: Text(
                                             valueOrDefault<String>(
@@ -170,7 +173,7 @@ class _AdminWidgetState extends State<AdminWidget> {
                               ),
                             ),
                           );
-                        }).divide(const SizedBox(height: 16.0)),
+                        }).divide(SizedBox(height: 16.0)),
                       ),
                     );
                   },
