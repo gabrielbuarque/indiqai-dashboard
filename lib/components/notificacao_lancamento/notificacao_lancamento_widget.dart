@@ -3,9 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'notificacao_lancamento_model.dart';
 export 'notificacao_lancamento_model.dart';
 
@@ -17,8 +14,8 @@ class NotificacaoLancamentoWidget extends StatefulWidget {
     required this.buttonText,
     Color? butttonColor,
     bool? buttonShow,
-  })  : this.butttonColor = butttonColor ?? const Color(0xFF5DE9B0),
-        this.buttonShow = buttonShow ?? false;
+  })  : butttonColor = butttonColor ?? const Color(0xFF5DE9B0),
+        buttonShow = buttonShow ?? false;
 
   final String? title;
   final String? message;
@@ -59,17 +56,17 @@ class _NotificacaoLancamentoWidgetState
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
         child: Container(
           width: MediaQuery.sizeOf(context).width * 0.98,
-          constraints: BoxConstraints(
+          constraints: const BoxConstraints(
             maxWidth: 500.0,
           ),
           decoration: BoxDecoration(
             color: Colors.white,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 blurRadius: 3.0,
                 color: Color(0x33000000),
@@ -83,7 +80,7 @@ class _NotificacaoLancamentoWidgetState
             borderRadius: BorderRadius.circular(12.0),
           ),
           child: Padding(
-            padding: EdgeInsets.all(14.0),
+            padding: const EdgeInsets.all(14.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -106,7 +103,7 @@ class _NotificacaoLancamentoWidgetState
                   minFontSize: 10.0,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Nunito',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 16.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
@@ -115,23 +112,23 @@ class _NotificacaoLancamentoWidgetState
                 Container(
                   height: 8.0,
                 ),
-                if (widget!.buttonShow)
+                if (widget.buttonShow)
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, -1.0),
+                        alignment: const AlignmentDirectional(0.0, -1.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             Navigator.pop(context);
                           },
-                          text: widget!.buttonText!,
+                          text: widget.buttonText!,
                           options: FFButtonOptions(
                             height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -146,11 +143,11 @@ class _NotificacaoLancamentoWidgetState
                           ),
                         ),
                       ),
-                    ].divide(SizedBox(width: 8.0)),
+                    ].divide(const SizedBox(width: 8.0)),
                   ),
               ]
-                  .divide(SizedBox(height: 12.0))
-                  .addToStart(SizedBox(height: 16.0)),
+                  .divide(const SizedBox(height: 12.0))
+                  .addToStart(const SizedBox(height: 16.0)),
             ),
           ),
         ),

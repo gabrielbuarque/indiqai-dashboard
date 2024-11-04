@@ -4,9 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'order_items_model.dart';
 export 'order_items_model.dart';
 
@@ -23,7 +20,7 @@ class OrderItemsWidget extends StatefulWidget {
     required this.statusTitle,
     required this.colorText,
     required this.colorBg,
-  }) : this.favorited = favorited ?? false;
+  }) : favorited = favorited ?? false;
 
   final String? image;
   final int? roomNum;
@@ -56,7 +53,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.favoritedInside = widget!.favorited;
+      _model.favoritedInside = widget.favorited;
       safeSetState(() {});
     });
 
@@ -76,7 +73,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
       borderRadius: BorderRadius.circular(16.0),
       child: Container(
         width: 800.0,
-        constraints: BoxConstraints(
+        constraints: const BoxConstraints(
           maxHeight: 500.0,
         ),
         decoration: BoxDecoration(
@@ -84,7 +81,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
           borderRadius: BorderRadius.circular(16.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -92,11 +89,11 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
             children: [
               Expanded(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
                   child: Container(
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(16.0),
                         bottomRight: Radius.circular(0.0),
                         topLeft: Radius.circular(16.0),
@@ -114,7 +111,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
                       clipBehavior: Clip.none,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 20.0, 0.0),
                           child: Container(
                             width: 320.0,
@@ -125,7 +122,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
                               child: Image.network(
-                                widget!.image!,
+                                widget.image!,
                                 width: 320.0,
                                 height: 182.0,
                                 fit: BoxFit.cover,
@@ -136,7 +133,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
                         Container(
                           width: 300.0,
                           height: 180.0,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -147,7 +144,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
                                 children: [
                                   Text(
                                     'Order ID : ${valueOrDefault<String>(
-                                      widget!.orderId?.toString(),
+                                      widget.orderId?.toString(),
                                       '0',
                                     )}',
                                     style: FlutterFlowTheme.of(context)
@@ -163,7 +160,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    widget!.name!,
+                                    widget.name!,
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
                                         .override(
@@ -178,7 +175,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
                                 children: [
                                   Text(
                                     '${valueOrDefault<String>(
-                                      widget!.roomNum?.toString(),
+                                      widget.roomNum?.toString(),
                                       '0',
                                     )}  Room',
                                     style: FlutterFlowTheme.of(context)
@@ -202,7 +199,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
                                     size: 24.0,
                                   ),
                                   Text(
-                                    '${dateTimeFormat("yMMMd", widget!.startDate)} - ${dateTimeFormat("yMMMd", widget!.endDate)}',
+                                    '${dateTimeFormat("yMMMd", widget.startDate)} - ${dateTimeFormat("yMMMd", widget.endDate)}',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
@@ -212,7 +209,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                ].divide(SizedBox(width: 8.0)),
+                                ].divide(const SizedBox(width: 8.0)),
                               ),
                               Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -237,12 +234,12 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
                                     ),
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        color: widget!.colorBg,
+                                        color: widget.colorBg,
                                         borderRadius:
                                             BorderRadius.circular(30.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             24.0, 8.0, 24.0, 8.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -251,7 +248,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
                                           children: [
                                             Text(
                                               valueOrDefault<String>(
-                                                widget!.statusTitle,
+                                                widget.statusTitle,
                                                 'Status',
                                               ),
                                               style:
@@ -260,7 +257,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
                                                       .override(
                                                         fontFamily: 'Nunito',
                                                         color:
-                                                            widget!.colorText,
+                                                            widget.colorText,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -269,7 +266,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
                                       ),
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 16.0)),
+                                ].divide(const SizedBox(width: 16.0)),
                               ),
                             ],
                           ),
@@ -285,7 +282,7 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
                             buttonSize: 40.0,
                             icon: Icon(
                               Icons.favorite_border,
-                              color: widget!.favorited
+                              color: widget.favorited
                                   ? FlutterFlowTheme.of(context).error
                                   : FlutterFlowTheme.of(context).white0,
                               size: 24.0,
@@ -306,13 +303,13 @@ class _OrderItemsWidgetState extends State<OrderItemsWidget> {
               ))
                 Container(
                   width: 48.0,
-                  constraints: BoxConstraints(
+                  constraints: const BoxConstraints(
                     minHeight: 230.0,
                     maxHeight: 500.0,
                   ),
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(0.0),
                       bottomRight: Radius.circular(16.0),
                       topLeft: Radius.circular(0.0),

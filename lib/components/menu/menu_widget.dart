@@ -5,16 +5,11 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
 import 'package:aligned_tooltip/aligned_tooltip.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'menu_model.dart';
 export 'menu_model.dart';
 
@@ -24,7 +19,7 @@ class MenuWidget extends StatefulWidget {
     required this.activePageName,
     bool? pageIsInSubMenu,
     this.subMenuName,
-  }) : this.pageIsInSubMenu = pageIsInSubMenu ?? false;
+  }) : pageIsInSubMenu = pageIsInSubMenu ?? false;
 
   final String? activePageName;
   final bool pageIsInSubMenu;
@@ -80,7 +75,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Container(
       height: double.infinity,
-      constraints: BoxConstraints(
+      constraints: const BoxConstraints(
         minWidth: 90.0,
         maxWidth: 290.0,
       ),
@@ -88,7 +83,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
         color: FlutterFlowTheme.of(context).primaryBackground,
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -158,10 +153,10 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                 ))
                   Container(
                     height: 50.0,
-                    decoration: BoxDecoration(),
-                    alignment: AlignmentDirectional(-1.0, 0.0),
+                    decoration: const BoxDecoration(),
+                    alignment: const AlignmentDirectional(-1.0, 0.0),
                   ),
-              ].divide(SizedBox(width: 4.0)),
+              ].divide(const SizedBox(width: 4.0)),
             ),
             Expanded(
               child: Column(
@@ -182,7 +177,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  if (widget!.activePageName != 'Dashboard01') {
+                                  if (widget.activePageName != 'Dashboard01') {
                                     context.goNamed('Dashboard01');
                                   }
                                 },
@@ -192,7 +187,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                                   updateOnChange: true,
                                   child: MenuItemWidget(
                                     isActivePage:
-                                        widget!.activePageName == 'Dashboard',
+                                        widget.activePageName == 'Dashboard',
                                     text: 'Dashboard',
                                     icon: Icon(
                                       Icons.grid_view,
@@ -311,7 +306,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                                   ),
                                   Container(
                                     decoration: BoxDecoration(
-                                      color: Color(0x80EFF3FA),
+                                      color: const Color(0x80EFF3FA),
                                       borderRadius: BorderRadius.circular(0.0),
                                     ),
                                     child: Visibility(
@@ -401,7 +396,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 16.0, 0.0, 16.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
@@ -430,13 +425,13 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                                                       .textFieldBachGround,
                                             ),
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                           ),
                                       ],
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 12.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
@@ -444,11 +439,11 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                                         Container(
                                           width: 44.0,
                                           height: 44.0,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Icon(
                                             Icons.person_add_alt,
                                             color: FlutterFlowTheme.of(context)
@@ -465,9 +460,9 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                                           Container(
                                             width: 200.0,
                                             height: 44.0,
-                                            decoration: BoxDecoration(),
+                                            decoration: const BoxDecoration(),
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -493,7 +488,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                                                 AlignedTooltip(
                                                   content: Padding(
                                                     padding:
-                                                        EdgeInsets.all(4.0),
+                                                        const EdgeInsets.all(4.0),
                                                     child: Text(
                                                       'Find to start conversation',
                                                       textAlign:
@@ -522,9 +517,9 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                                                   elevation: 4.0,
                                                   tailBaseWidth: 16.0,
                                                   tailLength: 8.0,
-                                                  waitDuration: Duration(
+                                                  waitDuration: const Duration(
                                                       milliseconds: 50),
-                                                  showDuration: Duration(
+                                                  showDuration: const Duration(
                                                       milliseconds: 400),
                                                   triggerMode:
                                                       TooltipTriggerMode.tap,
@@ -595,7 +590,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                               ),
                             ],
                           ),
-                        ].divide(SizedBox(height: 8.0)),
+                        ].divide(const SizedBox(height: 8.0)),
                       ),
                     ),
                   ),
@@ -620,17 +615,17 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 12.0),
                                   child: Stack(
                                     children: [
                                       Padding(
-                                        padding: EdgeInsets.all(12.0),
+                                        padding: const EdgeInsets.all(12.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -655,7 +650,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: FaIcon(
                                                       FontAwesomeIcons.robot,
@@ -666,7 +661,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                                                       size: 16.0,
                                                     ),
                                                   ),
-                                                ].divide(SizedBox(width: 8.0)),
+                                                ].divide(const SizedBox(width: 8.0)),
                                               ),
                                             ),
                                             Row(
@@ -691,7 +686,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                                                 ),
                                               ],
                                             ),
-                                          ].divide(SizedBox(height: 8.0)),
+                                          ].divide(const SizedBox(height: 8.0)),
                                         ),
                                       ),
                                     ],
@@ -710,17 +705,17 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                         },
                         child: Container(
                           height: 50.0,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Container(
                                 width: 50.0,
                                 height: 50.0,
-                                decoration: BoxDecoration(),
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                decoration: const BoxDecoration(),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Icon(
                                     Icons.logout,
                                     color: FlutterFlowTheme.of(context).error,
@@ -737,8 +732,8 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                                 Container(
                                   width: 200.0,
                                   height: 50.0,
-                                  decoration: BoxDecoration(),
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  decoration: const BoxDecoration(),
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
                                   child: Text(
                                     'Sair',
                                     style: FlutterFlowTheme.of(context)
@@ -760,7 +755,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                 ],
               ),
             ),
-          ].divide(SizedBox(height: 24.0)).addToStart(SizedBox(height: 16.0)),
+          ].divide(const SizedBox(height: 24.0)).addToStart(const SizedBox(height: 16.0)),
         ),
       ),
     );

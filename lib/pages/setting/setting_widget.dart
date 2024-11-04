@@ -2,11 +2,7 @@ import '/components/header/header_widget.dart';
 import '/components/navigator/navigator_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'setting_model.dart';
 export 'setting_model.dart';
 
@@ -46,7 +42,7 @@ class _SettingWidgetState extends State<SettingWidget> {
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: SafeArea(
           top: true,
-          child: Container(
+          child: SizedBox(
             width: double.infinity,
             height: double.infinity,
             child: Stack(
@@ -69,7 +65,7 @@ class _SettingWidgetState extends State<SettingWidget> {
                               model: _model.headerModel,
                               updateCallback: () => safeSetState(() {}),
                               updateOnChange: true,
-                              child: HeaderWidget(),
+                              child: const HeaderWidget(),
                             ),
                           ],
                         ),
@@ -82,11 +78,11 @@ class _SettingWidgetState extends State<SettingWidget> {
                   phone: false,
                 ))
                   Align(
-                    alignment: AlignmentDirectional(0.8, -0.97),
+                    alignment: const AlignmentDirectional(0.8, -0.97),
                     child: wrapWithModel(
                       model: _model.navigatorModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: NavigatorWidget(
+                      child: const NavigatorWidget(
                         expanded: true,
                       ),
                     ),

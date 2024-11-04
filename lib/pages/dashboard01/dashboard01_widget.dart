@@ -8,13 +8,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/instant_timer.dart';
 import 'dart:async';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'dashboard01_model.dart';
 export 'dashboard01_model.dart';
 
@@ -38,7 +35,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.instantTimer = InstantTimer.periodic(
-        duration: Duration(milliseconds: 1000),
+        duration: const Duration(milliseconds: 1000),
         callback: (timer) async {
           safeSetState(() => _model.requestCompleter = null);
           await _model.waitForRequestCompleted();
@@ -93,7 +90,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                 ? homeStackEmpresasRowList.first
                 : null;
 
-            return Container(
+            return SizedBox(
               width: double.infinity,
               height: double.infinity,
               child: Stack(
@@ -153,7 +150,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                       .alternate,
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       24.0, 12.0, 24.0, 0.0),
                                               child: Row(
@@ -168,7 +165,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                     height: 50.0,
                                                     clipBehavior:
                                                         Clip.antiAlias,
-                                                    decoration: BoxDecoration(
+                                                    decoration: const BoxDecoration(
                                                       shape: BoxShape.circle,
                                                     ),
                                                     child: Image.network(
@@ -199,7 +196,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                           text: valueOrDefault<
                                                               String>(
                                                             homeStackEmpresasRow
-                                                                ?.name,
+                                                                .name,
                                                             'Sem nome',
                                                           ),
                                                           style: TextStyle(
@@ -210,7 +207,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                                 FontWeight.w600,
                                                           ),
                                                         ),
-                                                        TextSpan(
+                                                        const TextSpan(
                                                           text: '!',
                                                           style: TextStyle(),
                                                         )
@@ -226,18 +223,18 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                           ),
                                                     ),
                                                   ),
-                                                ].divide(SizedBox(width: 12.0)),
+                                                ].divide(const SizedBox(width: 12.0)),
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 12.0, 12.0, 12.0),
                                               child: wrapWithModel(
                                                 model: _model.subHeaderModel,
                                                 updateCallback: () =>
                                                     safeSetState(() {}),
-                                                child: SubHeaderWidget(
+                                                child: const SubHeaderWidget(
                                                   title:
                                                       'Principais informações',
                                                   showBackBtn: false,
@@ -245,7 +242,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 0.0, 12.0, 0.0),
                                               child: Container(
@@ -266,7 +263,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                   children: [
                                                     Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Wrap(
                                                         spacing: 8.0,
@@ -310,7 +307,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsets
+                                                                    const EdgeInsets
                                                                         .all(
                                                                             16.0),
                                                                 child: Column(
@@ -322,14 +319,14 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                                           .center,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           12.0),
                                                                       child:
                                                                           Text(
-                                                                        homeStackEmpresasRow!.isOpen!
+                                                                        homeStackEmpresasRow.isOpen!
                                                                             ? 'ATIVO'
                                                                             : 'INATIVO',
                                                                         style: FlutterFlowTheme.of(context)
@@ -346,7 +343,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                                         await EmpresasTable()
                                                                             .update(
                                                                           data: {
-                                                                            'is_open': homeStackEmpresasRow!.isOpen!
+                                                                            'is_open': homeStackEmpresasRow.isOpen!
                                                                                 ? false
                                                                                 : true,
                                                                           },
@@ -367,7 +364,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                                               ),
                                                                             ),
                                                                             duration:
-                                                                                Duration(milliseconds: 4000),
+                                                                                const Duration(milliseconds: 4000),
                                                                             backgroundColor:
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                           ),
@@ -379,12 +376,12 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                                           FFButtonOptions(
                                                                         height:
                                                                             40.0,
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             16.0,
                                                                             0.0,
                                                                             16.0,
                                                                             0.0),
-                                                                        iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                        iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
@@ -411,7 +408,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         12.0,
@@ -440,15 +437,15 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                       ),
                                                     ),
                                                   ]
-                                                      .divide(SizedBox(
+                                                      .divide(const SizedBox(
                                                           height: 12.0))
-                                                      .around(SizedBox(
+                                                      .around(const SizedBox(
                                                           height: 12.0)),
                                                 ),
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 16.0, 12.0, 0.0),
                                               child: Container(
@@ -465,7 +462,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                           16.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsets.all(20.0),
+                                                  padding: const EdgeInsets.all(20.0),
                                                   child: Wrap(
                                                     spacing: 20.0,
                                                     runSpacing: 20.0,
@@ -550,7 +547,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                                   ),
                                                                 ],
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 height: 20.0)),
                                                           ),
                                                         ),
@@ -621,7 +618,7 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                                                     ),
                                                                   ],
                                                                 ),
-                                                              ].divide(SizedBox(
+                                                              ].divide(const SizedBox(
                                                                   height:
                                                                       20.0)),
                                                             ),
@@ -634,10 +631,10 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                                               ),
                                             ),
                                           ]
-                                              .divide(SizedBox(height: 0.0))
+                                              .divide(const SizedBox(height: 0.0))
                                               .addToStart(
-                                                  SizedBox(height: 56.0))
-                                              .addToEnd(SizedBox(height: 20.0)),
+                                                  const SizedBox(height: 56.0))
+                                              .addToEnd(const SizedBox(height: 20.0)),
                                         ),
                                       ),
                                     ),
@@ -658,11 +655,11 @@ class _Dashboard01WidgetState extends State<Dashboard01Widget> {
                     desktop: false,
                   ))
                     Align(
-                      alignment: AlignmentDirectional(0.79, -0.96),
+                      alignment: const AlignmentDirectional(0.79, -0.96),
                       child: wrapWithModel(
                         model: _model.navigatorModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: NavigatorWidget(
+                        child: const NavigatorWidget(
                           expanded: true,
                         ),
                       ),

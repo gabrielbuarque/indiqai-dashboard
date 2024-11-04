@@ -10,7 +10,7 @@ class FormsDuplicateTable extends SupabaseTable<FormsDuplicateRow> {
 }
 
 class FormsDuplicateRow extends SupabaseDataRow {
-  FormsDuplicateRow(Map<String, dynamic> data) : super(data);
+  FormsDuplicateRow(super.data);
 
   @override
   SupabaseTable get table => FormsDuplicateTable();

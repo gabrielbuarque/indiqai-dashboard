@@ -10,8 +10,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'validar_cupom_model.dart';
 export 'validar_cupom_model.dart';
 
@@ -79,7 +77,7 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                 ? homeStackEmpresasRowList.first
                 : null;
 
-            return Container(
+            return SizedBox(
               width: double.infinity,
               height: double.infinity,
               child: Stack(
@@ -102,7 +100,7 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                 model: _model.headerModel,
                                 updateCallback: () => safeSetState(() {}),
                                 updateOnChange: true,
-                                child: HeaderWidget(),
+                                child: const HeaderWidget(),
                               ),
                               Flexible(
                                 child: FutureBuilder<List<RewardsRow>>(
@@ -149,7 +147,7 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                         children: [
                                           Expanded(
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(6.0, 0.0, 6.0, 0.0),
                                               child: Container(
                                                 width: double.infinity,
@@ -178,10 +176,10 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                 1.0,
                                                         height: double.infinity,
                                                         decoration:
-                                                            BoxDecoration(),
+                                                            const BoxDecoration(),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsets.all(
+                                                              const EdgeInsets.all(
                                                                   12.0),
                                                           child: Column(
                                                             mainAxisSize:
@@ -195,7 +193,7 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                     .start,
                                                             children: [
                                                               Padding(
-                                                                padding: EdgeInsetsDirectional
+                                                                padding: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         20.0,
                                                                         0.0,
@@ -218,7 +216,7 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                             () =>
                                                                                 safeSetState(() {}),
                                                                         child:
-                                                                            SubHeaderWidget(
+                                                                            const SubHeaderWidget(
                                                                           title:
                                                                               'Validar Cupom',
                                                                           showBackBtn:
@@ -237,7 +235,7 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                   children: [
                                                                     if (!isWeb)
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             6.0,
                                                                             4.0,
                                                                             6.0,
@@ -255,7 +253,7 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                             );
 
                                                                             safeSetState(() {
-                                                                              _model.codigoCupomTextController?.text = _model.scanCode!;
+                                                                              _model.codigoCupomTextController?.text = _model.scanCode;
                                                                               _model.codigoCupomTextController?.selection = TextSelection.collapsed(offset: _model.codigoCupomTextController!.text.length);
                                                                             });
 
@@ -264,7 +262,7 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                           text:
                                                                               'Escanear Qr Code (Apenas no app)',
                                                                           icon:
-                                                                              Icon(
+                                                                              const Icon(
                                                                             Icons.qr_code_scanner_rounded,
                                                                             size:
                                                                                 15.0,
@@ -275,12 +273,12 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                                 350.0,
                                                                             height:
                                                                                 40.0,
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 16.0,
                                                                                 0.0,
                                                                                 16.0,
                                                                                 0.0),
-                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -305,11 +303,11 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         1.0,
                                                                         0.0),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           6.0,
                                                                           0.0,
@@ -332,7 +330,7 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                               .max,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,
@@ -349,7 +347,7 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                           ),
                                                                         ),
                                                                         Align(
-                                                                          alignment: AlignmentDirectional(
+                                                                          alignment: const AlignmentDirectional(
                                                                               -1.0,
                                                                               -1.0),
                                                                           child:
@@ -363,7 +361,7 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                             children:
                                                                                 [
                                                                               Expanded(
-                                                                                child: Container(
+                                                                                child: SizedBox(
                                                                                   width: 250.0,
                                                                                   child: TextFormField(
                                                                                     controller: _model.codigoCupomTextController,
@@ -413,7 +411,7 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                                       ),
                                                                                       filled: true,
                                                                                       fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                      hoverColor: Color(0x1E7541EE),
+                                                                                      hoverColor: const Color(0x1E7541EE),
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Nunito',
@@ -432,25 +430,25 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                                       _model.codigoCupomTextController.text,
                                                                                     ),
                                                                                   );
-                                                                                  if (_model.queryCupom?.first?.cupomUsado == false) {
-                                                                                    if (_model.queryCupom?.first?.qrcodeId == homeStackEmpresasRow?.qrcodeId) {
+                                                                                  if (_model.queryCupom?.first.cupomUsado == false) {
+                                                                                    if (_model.queryCupom?.first.qrcodeId == homeStackEmpresasRow?.qrcodeId) {
                                                                                       await RewardsTable().update(
                                                                                         data: {
                                                                                           'cupomUsado': true,
                                                                                         },
                                                                                         matchingRows: (rows) => rows.eq(
                                                                                           'uid',
-                                                                                          _model.queryCupom?.first?.uid,
+                                                                                          _model.queryCupom?.first.uid,
                                                                                         ),
                                                                                       );
                                                                                       await EmpresasTable().update(
                                                                                         data: {
                                                                                           'cupons_used': (homeStackEmpresasRow!.cuponsUsed!) + 1,
-                                                                                          'number_clients': (homeStackEmpresasRow!.numberClients!) + 1,
+                                                                                          'number_clients': (homeStackEmpresasRow.numberClients!) + 1,
                                                                                         },
                                                                                         matchingRows: (rows) => rows.eq(
                                                                                           'id',
-                                                                                          homeStackEmpresasRow?.id,
+                                                                                          homeStackEmpresasRow.id,
                                                                                         ),
                                                                                       );
                                                                                       safeSetState(() {
@@ -460,12 +458,12 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                                         context: context,
                                                                                         builder: (alertDialogContext) {
                                                                                           return AlertDialog(
-                                                                                            title: Text('Sucesso'),
-                                                                                            content: Text('Cupom validado com sucesso!'),
+                                                                                            title: const Text('Sucesso'),
+                                                                                            content: const Text('Cupom validado com sucesso!'),
                                                                                             actions: [
                                                                                               TextButton(
                                                                                                 onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                child: Text('Ok'),
+                                                                                                child: const Text('Ok'),
                                                                                               ),
                                                                                             ],
                                                                                           );
@@ -476,12 +474,12 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                                         context: context,
                                                                                         builder: (alertDialogContext) {
                                                                                           return AlertDialog(
-                                                                                            title: Text('Erro'),
-                                                                                            content: Text('Cupom não cadastrado em outro estabelecimento.'),
+                                                                                            title: const Text('Erro'),
+                                                                                            content: const Text('Cupom não cadastrado em outro estabelecimento.'),
                                                                                             actions: [
                                                                                               TextButton(
                                                                                                 onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                child: Text('Ok'),
+                                                                                                child: const Text('Ok'),
                                                                                               ),
                                                                                             ],
                                                                                           );
@@ -493,12 +491,12 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                                       context: context,
                                                                                       builder: (alertDialogContext) {
                                                                                         return AlertDialog(
-                                                                                          title: Text('Erro'),
-                                                                                          content: Text('Cupom já foi resgatado!'),
+                                                                                          title: const Text('Erro'),
+                                                                                          content: const Text('Cupom já foi resgatado!'),
                                                                                           actions: [
                                                                                             TextButton(
                                                                                               onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                              child: Text('Ok'),
+                                                                                              child: const Text('Ok'),
                                                                                             ),
                                                                                           ],
                                                                                         );
@@ -511,8 +509,8 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                                 text: 'Validar',
                                                                                 options: FFButtonOptions(
                                                                                   height: 43.0,
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                                                                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                         fontFamily: 'Nunito',
@@ -523,7 +521,7 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                                   borderRadius: BorderRadius.circular(8.0),
                                                                                 ),
                                                                               ),
-                                                                            ].divide(SizedBox(width: 8.0)),
+                                                                            ].divide(const SizedBox(width: 8.0)),
                                                                           ),
                                                                         ),
                                                                       ],
@@ -532,15 +530,15 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                                 ),
                                                               ),
                                                             ]
-                                                                .divide(SizedBox(
+                                                                .divide(const SizedBox(
                                                                     height:
                                                                         16.0))
                                                                 .addToStart(
-                                                                    SizedBox(
+                                                                    const SizedBox(
                                                                         height:
                                                                             16.0))
                                                                 .addToEnd(
-                                                                    SizedBox(
+                                                                    const SizedBox(
                                                                         height:
                                                                             0.0)),
                                                           ),
@@ -677,7 +675,7 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                                               selected,
                                                               onSelectChanged) =>
                                                           DataRow(
-                                                    color: MaterialStateProperty
+                                                    color: WidgetStateProperty
                                                         .all(
                                                       listaTesteIndex % 2 == 0
                                                           ? FlutterFlowTheme.of(
@@ -792,8 +790,8 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                                             ),
                                           ),
                                         ]
-                                            .divide(SizedBox(height: 6.0))
-                                            .around(SizedBox(height: 6.0)),
+                                            .divide(const SizedBox(height: 6.0))
+                                            .around(const SizedBox(height: 6.0)),
                                       ),
                                     );
                                   },
@@ -811,11 +809,11 @@ class _ValidarCupomWidgetState extends State<ValidarCupomWidget> {
                     desktop: false,
                   ))
                     Align(
-                      alignment: AlignmentDirectional(0.8, -0.97),
+                      alignment: const AlignmentDirectional(0.8, -0.97),
                       child: wrapWithModel(
                         model: _model.navigatorModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: NavigatorWidget(
+                        child: const NavigatorWidget(
                           expanded: true,
                         ),
                       ),

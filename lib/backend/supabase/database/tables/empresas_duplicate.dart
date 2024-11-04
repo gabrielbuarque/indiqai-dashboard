@@ -10,7 +10,7 @@ class EmpresasDuplicateTable extends SupabaseTable<EmpresasDuplicateRow> {
 }
 
 class EmpresasDuplicateRow extends SupabaseDataRow {
-  EmpresasDuplicateRow(Map<String, dynamic> data) : super(data);
+  EmpresasDuplicateRow(super.data);
 
   @override
   SupabaseTable get table => EmpresasDuplicateTable();

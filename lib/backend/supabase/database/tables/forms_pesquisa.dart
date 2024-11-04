@@ -10,7 +10,7 @@ class FormsPesquisaTable extends SupabaseTable<FormsPesquisaRow> {
 }
 
 class FormsPesquisaRow extends SupabaseDataRow {
-  FormsPesquisaRow(Map<String, dynamic> data) : super(data);
+  FormsPesquisaRow(super.data);
 
   @override
   SupabaseTable get table => FormsPesquisaTable();

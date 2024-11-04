@@ -4,15 +4,11 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'property_card_model.dart';
 export 'property_card_model.dart';
 
@@ -27,7 +23,7 @@ class PropertyCardWidget extends StatefulWidget {
     required this.sqfNum,
     required this.price,
     bool? favorited,
-  }) : this.favorited = favorited ?? false;
+  }) : favorited = favorited ?? false;
 
   final String? image;
   final String? title;
@@ -61,7 +57,7 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.favoritedInside = widget!.favorited;
+      _model.favoritedInside = widget.favorited;
       safeSetState(() {});
     });
 
@@ -94,8 +90,8 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.8, 0.8),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.8, 0.8),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -116,16 +112,22 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
     return MouseRegion(
       opaque: false,
       cursor: MouseCursor.defer ?? MouseCursor.defer,
+      onEnter: ((event) async {
+        safeSetState(() => _model.mouseRegionHovered = true);
+      }),
+      onExit: ((event) async {
+        safeSetState(() => _model.mouseRegionHovered = false);
+      }),
       child: Container(
         width: 320.0,
-        decoration: BoxDecoration(),
+        decoration: const BoxDecoration(),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Stack(
-              alignment: AlignmentDirectional(0.0, 0.0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               children: [
-                Container(
+                SizedBox(
                   width: double.infinity,
                   height: 180.0,
                   child: Stack(
@@ -133,9 +135,9 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: CachedNetworkImage(
-                          fadeInDuration: Duration(milliseconds: 500),
-                          fadeOutDuration: Duration(milliseconds: 500),
-                          imageUrl: widget!.image!,
+                          fadeInDuration: const Duration(milliseconds: 500),
+                          fadeOutDuration: const Duration(milliseconds: 500),
+                          imageUrl: widget.image!,
                           width: double.infinity,
                           height: 180.0,
                           fit: BoxFit.cover,
@@ -146,7 +148,7 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                           width: double.infinity,
                           height: double.infinity,
                           decoration: BoxDecoration(
-                            color: Color(0x36080B1F),
+                            color: const Color(0x36080B1F),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                         ).animateOnPageLoad(
@@ -162,7 +164,7 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                       Container(
                         width: 40.0,
                         height: 40.0,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           boxShadow: [
                             BoxShadow(
                               blurRadius: 22.0,
@@ -204,7 +206,7 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                         height: 40.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).blurBg,
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               blurRadius: 22.0,
                               color: Color(0x33000000),
@@ -249,7 +251,7 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                         height: 40.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).blurBg,
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               blurRadius: 22.0,
                               color: Color(0x33000000),
@@ -286,7 +288,7 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                           ),
                         ),
                       ),
-                    ].divide(SizedBox(width: 16.0)),
+                    ].divide(const SizedBox(width: 16.0)),
                   ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
               ],
             ),
@@ -296,7 +298,7 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
               children: [
                 Flexible(
                   child: Text(
-                    widget!.title!,
+                    widget.title!,
                     style: FlutterFlowTheme.of(context).labelLarge.override(
                           fontFamily: 'Nunito',
                           letterSpacing: 0.0,
@@ -304,7 +306,7 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                   child: Container(
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).brand100,
@@ -312,13 +314,13 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                     ),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
+                          const EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
                             formatNumber(
-                              widget!.price,
+                              widget.price,
                               formatType: FormatType.decimal,
                               decimalType: DecimalType.automatic,
                               currency: '\$',
@@ -346,14 +348,14 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                     model: _model.addressRowModel,
                     updateCallback: () => safeSetState(() {}),
                     child: AddressRowWidget(
-                      address: widget!.address!,
+                      address: widget.address!,
                     ),
                   ),
                 ),
               ],
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -368,7 +370,7 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                       ),
                       Text(
                         valueOrDefault<String>(
-                          widget!.bedsNum?.toString(),
+                          widget.bedsNum?.toString(),
                           '0',
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -377,7 +379,7 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                               letterSpacing: 0.0,
                             ),
                       ),
-                    ].divide(SizedBox(width: 10.0)),
+                    ].divide(const SizedBox(width: 10.0)),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -390,7 +392,7 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                       ),
                       Text(
                         valueOrDefault<String>(
-                          widget!.bathNum?.toString(),
+                          widget.bathNum?.toString(),
                           '0',
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -399,7 +401,7 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                               letterSpacing: 0.0,
                             ),
                       ),
-                    ].divide(SizedBox(width: 10.0)),
+                    ].divide(const SizedBox(width: 10.0)),
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -412,7 +414,7 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                       ),
                       Text(
                         '${valueOrDefault<String>(
-                          widget!.sqfNum?.toString(),
+                          widget.sqfNum?.toString(),
                           '0',
                         )}M',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -421,20 +423,14 @@ class _PropertyCardWidgetState extends State<PropertyCardWidget>
                               letterSpacing: 0.0,
                             ),
                       ),
-                    ].divide(SizedBox(width: 10.0)),
+                    ].divide(const SizedBox(width: 10.0)),
                   ),
-                ].divide(SizedBox(width: 25.0)),
+                ].divide(const SizedBox(width: 25.0)),
               ),
             ),
-          ].divide(SizedBox(height: 12.0)),
+          ].divide(const SizedBox(height: 12.0)),
         ),
       ),
-      onEnter: ((event) async {
-        safeSetState(() => _model.mouseRegionHovered = true);
-      }),
-      onExit: ((event) async {
-        safeSetState(() => _model.mouseRegionHovered = false);
-      }),
     );
   }
 }

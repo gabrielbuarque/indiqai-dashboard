@@ -2,9 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'user_row_card_res_start_chat_model.dart';
 export 'user_row_card_res_start_chat_model.dart';
 
@@ -57,10 +54,16 @@ class _UserRowCardResStartChatWidgetState
     return MouseRegion(
       opaque: false,
       cursor: MouseCursor.defer ?? MouseCursor.defer,
+      onEnter: ((event) async {
+        safeSetState(() => _model.mouseRegionHovered = true);
+      }),
+      onExit: ((event) async {
+        safeSetState(() => _model.mouseRegionHovered = false);
+      }),
       child: Container(
         decoration: BoxDecoration(
           color: valueOrDefault<Color>(
-            _model.mouseRegionHovered!
+            _model.mouseRegionHovered
                 ? FlutterFlowTheme.of(context).neutral100
                 : Colors.transparent,
             Colors.transparent,
@@ -73,25 +76,25 @@ class _UserRowCardResStartChatWidgetState
             Container(
               width: 44.0,
               height: 44.0,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
               ),
               child: Padding(
-                padding: EdgeInsets.all(4.0),
-                child: Container(
+                padding: const EdgeInsets.all(4.0),
+                child: SizedBox(
                   width: double.infinity,
                   height: double.infinity,
                   child: Stack(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(2.0),
+                        padding: const EdgeInsets.all(2.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: CachedNetworkImage(
-                            fadeInDuration: Duration(milliseconds: 500),
-                            fadeOutDuration: Duration(milliseconds: 500),
-                            imageUrl: widget!.avatar!,
+                            fadeInDuration: const Duration(milliseconds: 500),
+                            fadeOutDuration: const Duration(milliseconds: 500),
+                            imageUrl: widget.avatar!,
                             width: 300.0,
                             height: 200.0,
                             fit: BoxFit.cover,
@@ -99,7 +102,7 @@ class _UserRowCardResStartChatWidgetState
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(1.0, -1.0),
+                        alignment: const AlignmentDirectional(1.0, -1.0),
                         child: Container(
                           width: 10.0,
                           height: 10.0,
@@ -128,7 +131,7 @@ class _UserRowCardResStartChatWidgetState
               Container(
                 width: 200.0,
                 height: 44.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,7 +147,7 @@ class _UserRowCardResStartChatWidgetState
                             children: [
                               Flexible(
                                 child: Text(
-                                  widget!.displayName!,
+                                  widget.displayName!,
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -162,7 +165,7 @@ class _UserRowCardResStartChatWidgetState
                             children: [
                               Flexible(
                                 child: Text(
-                                  widget!.email!,
+                                  widget.email!,
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
@@ -185,12 +188,6 @@ class _UserRowCardResStartChatWidgetState
           ],
         ),
       ),
-      onEnter: ((event) async {
-        safeSetState(() => _model.mouseRegionHovered = true);
-      }),
-      onExit: ((event) async {
-        safeSetState(() => _model.mouseRegionHovered = false);
-      }),
     );
   }
 }

@@ -9,21 +9,17 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
-import 'dart:math';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
-import 'package:provider/provider.dart';
 import 'criar_cupom_copy_model.dart';
 export 'criar_cupom_copy_model.dart';
 
@@ -88,8 +84,8 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
             curve: Curves.easeInOut,
             delay: 250.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 70.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 70.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -157,7 +153,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
               future: ProductsTable().querySingleRow(
                 queryFn: (q) => q.eq(
                   'id',
-                  widget!.id,
+                  widget.id,
                 ),
               ),
               builder: (context, snapshot) {
@@ -186,16 +182,16 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(12.0),
+                        padding: const EdgeInsets.all(12.0),
                         child: Container(
                           width: double.infinity,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 670.0,
                           ),
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                 blurRadius: 3.0,
                                 color: Color(0x33000000),
@@ -220,7 +216,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                   key: _model.formKey,
                                   autovalidateMode: AutovalidateMode.always,
                                   child: Padding(
-                                    padding: EdgeInsets.all(24.0),
+                                    padding: const EdgeInsets.all(24.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -228,7 +224,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 12.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -244,7 +240,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -266,7 +262,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -310,7 +306,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 0.0),
                                           child: TextFormField(
                                             controller: _model
@@ -400,7 +396,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                 ),
                                               ),
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 24.0, 0.0, 24.0),
                                             ),
@@ -420,7 +416,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 0.0, 12.0),
                                           child: TextFormField(
                                             controller: _model
@@ -528,7 +524,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                 .asValidator(context),
                                           ),
                                         ),
-                                        Container(
+                                        SizedBox(
                                           width: 200.0,
                                           child: TextFormField(
                                             controller: _model
@@ -572,7 +568,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -636,7 +632,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                       ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   1.0, 0.0),
                                               child: Container(
                                                 width: 120.0,
@@ -696,16 +692,16 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                           count),
                                                   stepSize: 1,
                                                   contentPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(12.0, 0.0,
                                                               12.0, 0.0),
                                                 ),
                                               ),
                                             ),
-                                          ].divide(SizedBox(width: 12.0)),
+                                          ].divide(const SizedBox(width: 12.0)),
                                         ),
                                         Container(
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child:
                                               FutureBuilder<List<ProductsRow>>(
                                             future: ProductsTable().queryRows(
@@ -717,7 +713,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                   )
                                                   .eq(
                                                     'id',
-                                                    widget!.id,
+                                                    widget.id,
                                                   )
                                                   .order('id_number',
                                                       ascending: true),
@@ -783,7 +779,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                 columnProductsRow?.idNumber,
                                           ),
                                           options: List<int>.from([1, 2, 3, 4]),
-                                          optionLabels: [
+                                          optionLabels: const [
                                             'Prêmio 1',
                                             'Prêmio 2',
                                             'Prêmio 3',
@@ -815,7 +811,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                           borderWidth: 0.0,
                                           borderRadius: 8.0,
                                           margin:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 12.0, 0.0),
                                           hidesUnderline: true,
                                           isOverButton: false,
@@ -824,9 +820,9 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 8.0),
-                                          child: Container(
+                                          child: SizedBox(
                                             width: 350.0,
                                             child: TextFormField(
                                               controller:
@@ -873,7 +869,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: BorderSide(
+                                                  borderSide: const BorderSide(
                                                     color: Color(0x00000000),
                                                     width: 1.0,
                                                   ),
@@ -957,11 +953,11 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                               text: 'Calcular automaticamente',
                                               options: FFButtonOptions(
                                                 height: 40.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 16.0, 0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
                                                 color:
@@ -980,7 +976,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                             ),
-                                            Container(
+                                            SizedBox(
                                               width: 200.0,
                                               child: TextFormField(
                                                 controller: _model
@@ -995,7 +991,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
                                                   '_model.pontosEquivalentesTextController',
-                                                  Duration(milliseconds: 2000),
+                                                  const Duration(milliseconds: 2000),
                                                   () => safeSetState(() {}),
                                                 ),
                                                 autofocus: false,
@@ -1035,7 +1031,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Color(0x00000000),
                                                       width: 1.0,
                                                     ),
@@ -1085,7 +1081,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                                 ?.clear();
                                                             safeSetState(() {});
                                                           },
-                                                          child: Icon(
+                                                          child: const Icon(
                                                             Icons.clear,
                                                             size: 22,
                                                           ),
@@ -1109,7 +1105,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                     .asValidator(context),
                                               ),
                                             ),
-                                          ].divide(SizedBox(width: 8.0)),
+                                          ].divide(const SizedBox(width: 8.0)),
                                         ),
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -1118,7 +1114,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 16.0),
                                                 child: Container(
@@ -1134,7 +1130,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                   ),
                                                   child: Stack(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             0.0, 0.0),
                                                     children: [
                                                       Column(
@@ -1154,7 +1150,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         12.0,
@@ -1175,7 +1171,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         4.0,
@@ -1198,7 +1194,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsets.all(8.0),
+                                                            const EdgeInsets.all(8.0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -1311,7 +1307,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                                   (rows) =>
                                                                       rows.eq(
                                                                 'id',
-                                                                widget!.id,
+                                                                widget.id,
                                                               ),
                                                             );
                                                             safeSetState(() =>
@@ -1333,7 +1329,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                                       .expand(
                                                                 child: Image(
                                                                   image: BlurHashImage(
-                                                                      columnProductsRow!
+                                                                      columnProductsRow
                                                                           .blurHash!),
                                                                   fit: BoxFit
                                                                       .cover,
@@ -1374,7 +1370,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 16.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1382,7 +1378,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                 MainAxisAlignment.end,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 4.0, 0.0),
                                                 child: FFButtonWidget(
@@ -1420,7 +1416,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                       matchingRows: (rows) =>
                                                           rows.eq(
                                                         'id',
-                                                        widget!.id,
+                                                        widget.id,
                                                       ),
                                                       returnRows: true,
                                                     );
@@ -1429,7 +1425,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: Text(
+                                                          title: const Text(
                                                               'Criado com sucesso!'),
                                                           content: Text(_model
                                                               .dwadwa!
@@ -1440,7 +1436,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                               onPressed: () =>
                                                                   Navigator.pop(
                                                                       alertDialogContext),
-                                                              child: Text('Ok'),
+                                                              child: const Text('Ok'),
                                                             ),
                                                           ],
                                                         );
@@ -1454,24 +1450,24 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                     safeSetState(() {
                                                       _model.cupomNameTextController
                                                               ?.text =
-                                                          columnProductsRow!
+                                                          columnProductsRow
                                                               .name!;
                                                       _model.descriptionCupomTextController
                                                               ?.text =
-                                                          columnProductsRow!
+                                                          columnProductsRow
                                                               .description!;
                                                       _model.precoVendaTextController
                                                               ?.text =
-                                                          columnProductsRow!
+                                                          columnProductsRow
                                                               .price!
                                                               .toString();
                                                       _model.textController4
                                                               ?.text =
-                                                          columnProductsRow!
+                                                          columnProductsRow
                                                               .regrasUsoCupom!;
                                                       _model.pontosEquivalentesTextController
                                                               ?.text =
-                                                          columnProductsRow!
+                                                          columnProductsRow
                                                               .pontosEquivalentes!
                                                               .toString();
                                                     });
@@ -1487,11 +1483,11 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                   options: FFButtonOptions(
                                                     height: 50.0,
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(32.0, 0.0,
                                                                 32.0, 0.0),
                                                     iconPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
@@ -1506,7 +1502,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                     elevation: 2.0,
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -1519,7 +1515,7 @@ class _CriarCupomCopyWidgetState extends State<CriarCupomCopyWidget>
                                             ],
                                           ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
                                 ),

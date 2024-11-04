@@ -1,9 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'divider_model.dart';
 export 'divider_model.dart';
 
@@ -12,7 +9,7 @@ class DividerWidget extends StatefulWidget {
     super.key,
     this.title,
     bool? titleInLeftSide,
-  }) : this.titleInLeftSide = titleInLeftSide ?? false;
+  }) : titleInLeftSide = titleInLeftSide ?? false;
 
   final String? title;
   final bool titleInLeftSide;
@@ -49,11 +46,11 @@ class _DividerWidgetState extends State<DividerWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      decoration: BoxDecoration(),
+      decoration: const BoxDecoration(),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
-          if (!widget!.titleInLeftSide)
+          if (!widget.titleInLeftSide)
             Expanded(
               child: Container(
                 height: 1.0,
@@ -65,18 +62,18 @@ class _DividerWidgetState extends State<DividerWidget> {
           Row(
             mainAxisSize: MainAxisSize.max,
             children: [
-              if ((widget!.title != null && widget!.title != '') &&
-                  !widget!.titleInLeftSide)
+              if ((widget.title != null && widget.title != '') &&
+                  !widget.titleInLeftSide)
                 Container(
                   width: 16.0,
                   height: 1.0,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                 ),
-              if (widget!.title != null && widget!.title != '')
+              if (widget.title != null && widget.title != '')
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                   child: Text(
-                    widget!.title!,
+                    widget.title!,
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).labelMedium.override(
                           fontFamily: 'Nunito',

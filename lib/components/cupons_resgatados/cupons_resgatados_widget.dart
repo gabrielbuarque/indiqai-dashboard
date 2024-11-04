@@ -1,13 +1,8 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'cupons_resgatados_model.dart';
 export 'cupons_resgatados_model.dart';
 
@@ -50,8 +45,8 @@ class _CuponsResgatadosWidgetState extends State<CuponsResgatadosWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(30.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(30.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -76,12 +71,12 @@ class _CuponsResgatadosWidgetState extends State<CuponsResgatadosWidget>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 12.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 12.0),
       child: Container(
         width: 250.0,
         height: 161.0,
         decoration: BoxDecoration(
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x34090F13),
@@ -105,7 +100,7 @@ class _CuponsResgatadosWidgetState extends State<CuponsResgatadosWidget>
                 borderRadius: BorderRadius.circular(12.0),
               ),
               child: Padding(
-                padding: EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(12.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -116,7 +111,7 @@ class _CuponsResgatadosWidgetState extends State<CuponsResgatadosWidget>
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.0),
                       ),
-                      alignment: AlignmentDirectional(-1.0, 0.0),
+                      alignment: const AlignmentDirectional(-1.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -128,7 +123,7 @@ class _CuponsResgatadosWidgetState extends State<CuponsResgatadosWidget>
                           ),
                           Flexible(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 '14 de 32',
                                 maxLines: 1,
@@ -143,7 +138,7 @@ class _CuponsResgatadosWidgetState extends State<CuponsResgatadosWidget>
                               ),
                             ),
                           ),
-                        ].divide(SizedBox(width: 0.0)),
+                        ].divide(const SizedBox(width: 0.0)),
                       ),
                     ),
                     Column(

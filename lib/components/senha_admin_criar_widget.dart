@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'senha_admin_criar_model.dart';
 export 'senha_admin_criar_model.dart';
@@ -80,7 +79,7 @@ class _SenhaAdminCriarWidgetState extends State<SenhaAdminCriarWidget> {
         return Material(
           color: Colors.transparent,
           elevation: 5.0,
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
@@ -93,7 +92,7 @@ class _SenhaAdminCriarWidgetState extends State<SenhaAdminCriarWidget> {
             height: 370.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(0.0),
                 bottomRight: Radius.circular(0.0),
                 topLeft: Radius.circular(16.0),
@@ -107,20 +106,20 @@ class _SenhaAdminCriarWidgetState extends State<SenhaAdminCriarWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 16.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 16.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 12.0, 0.0, 0.0),
                           child: Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FlutterFlowIconButton(
                                 borderRadius: 8.0,
                                 buttonSize: 40.0,
@@ -143,7 +142,7 @@ class _SenhaAdminCriarWidgetState extends State<SenhaAdminCriarWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
                     child: Text(
                       'Insira a senha de admin para prosseguir',
                       style:
@@ -155,7 +154,7 @@ class _SenhaAdminCriarWidgetState extends State<SenhaAdminCriarWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                     child: TextFormField(
                       controller: _model.shortBioTextController,
                       focusNode: _model.shortBioFocusNode,
@@ -195,7 +194,7 @@ class _SenhaAdminCriarWidgetState extends State<SenhaAdminCriarWidget> {
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                        contentPadding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 32.0, 20.0, 12.0),
                         suffixIcon: InkWell(
                           onTap: () => safeSetState(
@@ -207,7 +206,7 @@ class _SenhaAdminCriarWidgetState extends State<SenhaAdminCriarWidget> {
                             _model.shortBioVisibility
                                 ? Icons.visibility_outlined
                                 : Icons.visibility_off_outlined,
-                            color: Color(0xFF757575),
+                            color: const Color(0xFF757575),
                             size: 22.0,
                           ),
                         ),
@@ -227,7 +226,7 @@ class _SenhaAdminCriarWidgetState extends State<SenhaAdminCriarWidget> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 24.0, 0.0, 44.0),
                         child: FFButtonWidget(
                           onPressed: () async {
@@ -243,7 +242,7 @@ class _SenhaAdminCriarWidgetState extends State<SenhaAdminCriarWidget> {
                                 builder: (context) {
                                   return Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
-                                    child: CriarCupomWidget(),
+                                    child: const CriarCupomWidget(),
                                   );
                                 },
                               ).then((value) => safeSetState(() {}));
@@ -259,14 +258,14 @@ class _SenhaAdminCriarWidgetState extends State<SenhaAdminCriarWidget> {
                                 context: context,
                                 builder: (alertDialogContext) {
                                   return AlertDialog(
-                                    title: Text('Senha incorreta'),
-                                    content: Text(
+                                    title: const Text('Senha incorreta'),
+                                    content: const Text(
                                         'Por favor insira a senha correta para poder prosseguir, ou contate seu lider.'),
                                     actions: [
                                       TextButton(
                                         onPressed: () =>
                                             Navigator.pop(alertDialogContext),
-                                        child: Text('Ok'),
+                                        child: const Text('Ok'),
                                       ),
                                     ],
                                   );
@@ -278,9 +277,9 @@ class _SenhaAdminCriarWidgetState extends State<SenhaAdminCriarWidget> {
                           options: FFButtonOptions(
                             width: 270.0,
                             height: 50.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -291,7 +290,7 @@ class _SenhaAdminCriarWidgetState extends State<SenhaAdminCriarWidget> {
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),

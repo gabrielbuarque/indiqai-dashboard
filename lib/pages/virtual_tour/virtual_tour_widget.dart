@@ -2,11 +2,8 @@ import '/components/header/header_widget.dart';
 import '/components/navigator/navigator_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'virtual_tour_model.dart';
 export 'virtual_tour_model.dart';
@@ -55,7 +52,7 @@ class _VirtualTourWidgetState extends State<VirtualTourWidget> {
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: SafeArea(
           top: true,
-          child: Container(
+          child: SizedBox(
             width: double.infinity,
             height: double.infinity,
             child: Stack(
@@ -78,7 +75,7 @@ class _VirtualTourWidgetState extends State<VirtualTourWidget> {
                               model: _model.headerModel,
                               updateCallback: () => safeSetState(() {}),
                               updateOnChange: true,
-                              child: HeaderWidget(),
+                              child: const HeaderWidget(),
                             ),
                             Expanded(
                               child: Container(
@@ -95,7 +92,7 @@ class _VirtualTourWidgetState extends State<VirtualTourWidget> {
                                         CrossAxisAlignment.stretch,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             20.0, 0.0, 20.0, 0.0),
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -107,9 +104,9 @@ class _VirtualTourWidgetState extends State<VirtualTourWidget> {
                                         ),
                                       ),
                                     ]
-                                        .divide(SizedBox(height: 20.0))
-                                        .addToStart(SizedBox(height: 20.0))
-                                        .addToEnd(SizedBox(height: 20.0)),
+                                        .divide(const SizedBox(height: 20.0))
+                                        .addToStart(const SizedBox(height: 20.0))
+                                        .addToEnd(const SizedBox(height: 20.0)),
                                   ),
                                 ),
                               ),
@@ -125,11 +122,11 @@ class _VirtualTourWidgetState extends State<VirtualTourWidget> {
                   phone: false,
                 ))
                   Align(
-                    alignment: AlignmentDirectional(0.8, -0.97),
+                    alignment: const AlignmentDirectional(0.8, -0.97),
                     child: wrapWithModel(
                       model: _model.navigatorModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: NavigatorWidget(
+                      child: const NavigatorWidget(
                         expanded: true,
                       ),
                     ),

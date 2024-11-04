@@ -2,13 +2,8 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'chat_message_options_model.dart';
 export 'chat_message_options_model.dart';
 
@@ -46,8 +41,8 @@ class _ChatMessageOptionsWidgetState extends State<ChatMessageOptionsWidget>
             curve: Curves.elasticOut,
             delay: 0.0.ms,
             duration: 500.0.ms,
-            begin: Offset(0.0, 0.0),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.0, 0.0),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -59,8 +54,8 @@ class _ChatMessageOptionsWidgetState extends State<ChatMessageOptionsWidget>
             curve: Curves.elasticOut,
             delay: 150.0.ms,
             duration: 500.0.ms,
-            begin: Offset(0.0, 0.0),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.0, 0.0),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -83,7 +78,7 @@ class _ChatMessageOptionsWidgetState extends State<ChatMessageOptionsWidget>
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(10.0, 4.0, 10.0, 4.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 4.0, 10.0, 4.0),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -117,7 +112,7 @@ class _ChatMessageOptionsWidgetState extends State<ChatMessageOptionsWidget>
               },
             ).animateOnPageLoad(
                 animationsMap['iconButtonOnPageLoadAnimation2']!),
-          ].divide(SizedBox(width: 10.0)),
+          ].divide(const SizedBox(width: 10.0)),
         ),
       ),
     );

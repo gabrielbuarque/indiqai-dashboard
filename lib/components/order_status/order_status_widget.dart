@@ -1,9 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'order_status_model.dart';
 export 'order_status_model.dart';
 
@@ -57,20 +54,20 @@ class _OrderStatusWidgetState extends State<OrderStatusWidget> {
       ),
       child: Container(
         decoration: BoxDecoration(
-          color: widget!.colorBg,
+          color: widget.colorBg,
           borderRadius: BorderRadius.circular(30.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 24.0, 8.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 24.0, 8.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                widget!.statusTitle!,
+                widget.statusTitle!,
                 style: FlutterFlowTheme.of(context).labelMedium.override(
                       fontFamily: 'Nunito',
-                      color: widget!.colorText,
+                      color: widget.colorText,
                       letterSpacing: 0.0,
                     ),
               ),
