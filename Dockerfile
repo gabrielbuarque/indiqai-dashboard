@@ -1,36 +1,28 @@
-# Etapa de construção
-FROM ubuntu:latest AS build
+# Etapa de construção usando a imagem Flutter mais recente
+FROM ghcr.io/cirruslabs/flutter:latest AS build
 
-# Instalar dependências principais de uma vez e configurar o Flutter
-RUN apt-get update && \
-    apt-get install -y git curl sudo unzip libgtk-3-dev && \
-    mkdir -p /development && \
-    cd /development && \
-    git clone https://github.com/flutter/flutter.git -b stable && \
-    echo 'export PATH="$PATH:/development/flutter/bin"' >> ~/.bashrc && \
-    export PATH="$PATH:/development/flutter/bin" && \
-    flutter precache && \
-    flutter config --enable-web && \
-    flutter doctor -v
-
-# Definir o diretório de trabalho e usuário não-root
+# Definir o diretório de trabalho
 WORKDIR /app
-RUN useradd -m flutteruser && echo "flutteruser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-USER flutteruser
 
-# Copiar e instalar dependências do projeto
+# Copiar os arquivos do projeto para o contêiner
 COPY . .
-RUN flutter pub get && flutter build web
+
+# Habilitar o suporte à web e instalar dependências
+RUN flutter config --enable-web && \
+    flutter pub get && \
+    flutter build web
 
 # Etapa de produção
 FROM nginx:alpine
+
+# Remover arquivos padrão do Nginx
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copiar o build para o diretório do Nginx
+# Copiar o build do Flutter para o diretório de serviço do Nginx
 COPY --from=build /app/build/web /usr/share/nginx/html
 
-# Expor a porta 8095 para acesso HTTP
+# Expor a porta 8095 para o Nginx
 EXPOSE 8095
 
-# Iniciar o Nginx
+# Comando para iniciar o Nginx
 CMD ["nginx", "-g", "daemon off;"]
