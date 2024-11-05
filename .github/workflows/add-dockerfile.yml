@@ -25,6 +25,8 @@ jobs:
 
       - name: Add Dockerfile
         if: env.need_dockerfile == 'true'
+        env:
+          ACTIONS_PAT: ${{ secrets.ACTIONS_PAT }}
         run: |
           cat <<EOF > Dockerfile
           # Etapa de construção usando a imagem Flutter mais recente
@@ -58,6 +60,7 @@ jobs:
           EOF
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.ACTIONS_PAT }}@github.com/gabrielbuarque/indiqai-dashboard.git
           git add Dockerfile
           git commit -m "Add Dockerfile"
           git push origin flutterflow
