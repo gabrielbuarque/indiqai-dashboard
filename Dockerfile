@@ -1,4 +1,4 @@
-# Etapa de construção usando a imagem Flutter mais recente
+# Etapa de construção usando a imagem Flutter mais
 FROM ghcr.io/cirruslabs/flutter:latest AS build
 
 # Definir o diretório de trabalho
