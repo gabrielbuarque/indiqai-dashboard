@@ -1,6 +1,8 @@
 # Etapa de construção usando a imagem Flutter mais recente
 FROM ghcr.io/cirruslabs/flutter:latest AS build
 
+
+
 # Definir o diretório de trabalho
 WORKDIR /app
 
