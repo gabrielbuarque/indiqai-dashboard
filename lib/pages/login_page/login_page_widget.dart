@@ -501,7 +501,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                       children: [
                                                         Flexible(
                                                           child: Text(
-                                                            'Bem-vindo Natã',
+                                                            'Bem-vindo ao Indiq.ai',
                                                             textAlign: TextAlign
                                                                 .center,
                                                             maxLines: 2,
